@@ -27,95 +27,123 @@
                 <li class="menuButton" onclick=showSideBar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
             </ul>
         </nav> 
-        <div class="container">
-            <div class="circle-img">
-                <img src="your_image.jpg" alt="Your Image">
+        <section id="profile">
+            <div class="section__pic-container">
+                <img src="./profile_pic.png" alt="cristian-profile-pic" class="profile__pic">
             </div>
-            <div class="text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut gravida purus. Sed laoreet magna eu ante posuere, id tincidunt libero varius. Donec venenatis, arcu in pellentesque laoreet, neque arcu convallis est, nec fermentum purus nisl nec ante.</p>
-                <p>Integer auctor, risus nec tincidunt commodo, nisi purus semper nisi, vel eleifend lectus sem eget metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed rhoncus, felis non scelerisque tincidunt, orci quam posuere quam, id ullamcorper odio tortor ut risus.</p>
+            <div class="section__text">
+                <p class="section__text__p1">
+                    Hola soy
+                </p>
+                <h1 class="title">Cristian Pedraza</h1>
+                <p class="section__text__p2">Fullstack Developer</p>
+                <div class="btn-container">
+                    <button class="btn btn-color-2" onclick="window.open('./HV CRISTIAN 2.0.pdf')">
+                        Descargar HV
+                    </button>
+                    <button class="btn btn-color-1" onclick="location.href='#contact'">
+                        Contacto
+                    </button>
+                </div>
+                <div id="social-container">
+                    <img src="./linkedin.png" 
+                    alt="my-linkedin-profile" 
+                    class="icon" 
+                    onClick="window.location.href='https://www.linkedin.com/in/cristian-pedraza-hoyos-96b830252/'">
+                    <img src="./github.png" 
+                    alt="my-github-profile" 
+                    class="icon" 
+                    onClick="window.location.href='https://github.com/CrisDev96'">
+                </div>
             </div>
-        </div>
-        <div class="container-2">
-            <h2>Conoce más Sobre Mí</h2>
-            <div class="rectangle-img">
-                <img src="your_rectangle_image.jpg" alt="Rectangle Image">
+        </section>
+        <section id="technologies">
+            <div class="tech-wrapper">
+                <div class="tech-container">
+                    <input type="radio" name="slide" id="c1" checked>
+                    <label for="c1" class="card">
+                        <div class="tech-row">
+                            <div class="tech-icon">1</div>
+                            <div class="tech-description">
+                                <h4>Winter</h4>
+                                <p>Esto es el invierno</p>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="radio" name="slide" id="c2">
+                    <label for="c2" class="card">
+                        <div class="tech-row">
+                            <div class="tech-icon">2</div>
+                            <div class="tech-description">
+                                <h4>Winter 2</h4>
+                                <p>Esto es el invierno 2</p>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="radio" name="slide" id="c3">
+                    <label for="c3" class="card">
+                        <div class="tech-row">
+                            <div class="tech-icon">3</div>
+                            <div class="tech-description">
+                                <h4>Winter 3</h4>
+                                <p>Esto es el invierno 3</p>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="radio" name="slide" id="c4">
+                    <label for="c4" class="card">
+                        <div class="tech-row">
+                            <div class="tech-icon">4</div>
+                            <div class="tech-description">
+                                <h4>Winter 4</h4>
+                                <p>Esto es el invierno 4</p>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="radio" name="slide" id="c5">
+                    <label for="c5" class="card">
+                        <div class="tech-row">
+                            <div class="tech-icon">5</div>
+                            <div class="tech-description">
+                                <h4>Winter 5</h4>
+                                <p>Esto es el invierno 5</p>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="radio" name="slide" id="c6">
+                    <label for="c6" class="card">
+                        <div class="tech-row">
+                            <div class="tech-icon">6</div>
+                            <div class="tech-description">
+                                <h4>Winter 6</h4>
+                                <p>Esto es el invierno 6</p>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="radio" name="slide" id="c7">
+                    <label for="c7" class="card">
+                        <div class="tech-row">
+                            <div class="tech-icon">7</div>
+                            <div class="tech-description">
+                                <h4>Winter 7</h4>
+                                <p>Esto es el invierno 7</p>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="radio" name="slide" id="c8">
+                    <label for="c8" class="card">
+                        <div class="tech-row">
+                            <div class="tech-icon">8</div>
+                            <div class="tech-description">
+                                <h4>Winter 8</h4>
+                                <p>Esto es el invierno 8</p>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
             </div>
-            <div class="rectangle">
-                <h3>Section 1 Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut gravida purus.</p>
-            </div>
-            <div class="rectangle">
-                <h3>Section 2 Title</h3>
-                <p>Integer auctor, risus nec tincidunt commodo, nisi purus semper nisi, vel eleifend lectus sem eget metus.</p>
-            </div>
-        </div>
-        <div class="container-2">
-            <h2>Experiencia</h2>
-            <div class="rectangle">
-                <h3>Section 1 Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut gravida purus.</p>
-            </div>
-            <div class="rectangle">
-                <h3>Section 2 Title</h3>
-                <p>Integer auctor, risus nec tincidunt commodo, nisi purus semper nisi, vel eleifend lectus sem eget metus.</p>
-            </div>
-            <div class="rectangle">
-                <h3>Section 1 Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut gravida purus.</p>
-            </div>
-        </div>
-        <div class="container-3">
-            <h2>Proyectos</h2>
-            <div class="rectangle-img">
-                <h3>Ridepro</h3>
-                <img src="your_rectangle_image.jpg" alt="Rectangle Image">
-                <a href="https://www.example.com">Visitar Sitio Web</a>
-            </div>
-            <div class="rectangle-img">
-                <h3>Ridepro</h3>
-                <img src="your_rectangle_image.jpg" alt="Rectangle Image">
-                <a href="https://www.example.com">Visitar Sitio Web</a>
-            </div>
-        </div>
-        <div class="container-4">
-            <h2>Contacto</h2>
-            <div class="rectangle-img">
-                <img src="your_rectangle_image.jpg" alt="Rectangle Image">
-                <h4>cristianpedraza96@gmail.com</h4>
-            </div>
-            <div class="rectangle-img">
-                <img src="your_rectangle_image.jpg" alt="Rectangle Image">
-                <h4>cristianpedraza96@outlook.com</h4>
-            </div>
-            <div class="rectangle-img">
-                <img src="your_rectangle_image.jpg" alt="Rectangle Image">
-                <a href=https://www.linkedin.com/in/cristian-pedraza-hoyos-96b830252>linkedin</a>
-            </div>
-            <div class="rectangle-img">
-                <img src="your_rectangle_image.jpg" alt="Rectangle Image">
-                <h4>+57 300-562-4810</h4>
-            </div>
-        </div>
-        <div class="container-5">
-            <div class="rectangle-img">
-                <h4>Sobre Mi</h4>
-            </div>
-            <div class="rectangle-img">
-                <h4>Experiencia</h4>
-            </div>
-            <div class="rectangle-img">
-                <h4>Proyectos</h4>
-            </div>
-            <div class="rectangle-img">
-                <h4>Contacto</h4>
-            </div>
-        </div>
-        <div class="container-5">
-            <div class="rectangle-img">
-                <h6>Copyrigth © 2024 Cristian Pedraza</h6>
-            </div>
-        </div>
+        </section>
     </main>
 	<script src="index.js"></script>
   </body>
