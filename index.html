@@ -1,634 +1,2183 @@
 <!DOCTYPE html>
-
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+    <title>Cristian Pedraza — Fullstack Developer · Sound Engineer · AI Specialist</title>
+    <meta name="description"
+        content="Portafolio profesional de Cristian Pedraza. Fullstack Developer, Sound Engineer y AI Specialist." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#141414",
-                        "background-light": "#ffffff",
-                        "background-dark": "#0a0a0a",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
-                },
-            },
-        }
-    </script>
     <style>
-        .waveform-bar {
-            width: 3px;
-            background-color: #141414;
-            margin: 0 1px;
-            display: inline-block;
+        :root {
+            --bg: #f5f4f1;
+            --surface: #ffffff;
+            --ink: #17181a;
+            --ink-soft: #5c5f66;
+            --muted: #8a8f98;
+            --line: #e4e2dd;
+            --dark: #141416;
+            --dark-soft: #1d1e21;
+            --accent: #ea580c;
+            --shadow: 0 20px 50px -20px rgba(20, 22, 24, 0.25);
+            --radius: 8px;
         }
 
-        .no-scrollbar::-webkit-scrollbar {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            z-index: 1000;
+            background: var(--ink);
+            color: #fff;
+            padding: 0.75rem 1.25rem;
+        }
+
+        .skip-link:focus {
+            left: 1rem;
+            top: 1rem;
+        }
+
+        .container {
+            width: min(1180px, 100% - 3rem);
+            margin-inline: auto;
+        }
+
+        section[id] {
+            scroll-margin-top: 84px;
+        }
+
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            stroke: currentColor;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            flex-shrink: 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 28px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .h1,
+        .h2,
+        .h3 {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            color: var(--ink);
+        }
+
+        .h1 {
+            font-size: clamp(3rem, 9vw, 6.5rem);
+            text-transform: uppercase;
+            line-height: 0.95;
+        }
+
+        .h2 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            margin-top: 1.1rem;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            color: var(--ink-soft);
+            max-width: 52ch;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            padding: 0.95rem 1.9rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            border: 1.5px solid transparent;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .btn .icon {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px -12px rgba(234, 88, 12, 0.55);
+        }
+
+        .btn-outline {
+            border-color: var(--line);
+            background: transparent;
+            color: var(--ink);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--ink);
+            transform: translateY(-2px);
+        }
+
+        .btn-on-dark {
+            background: #fff;
+            color: var(--dark);
+        }
+
+        .btn-on-dark:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(245, 244, 241, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            height: 72px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            font-size: 1.05rem;
+        }
+
+        .brand .icon {
+            width: 1.6rem;
+            height: 1.6rem;
+            color: var(--accent);
+            stroke-width: 2.2;
+        }
+
+        .brand em {
+            font-style: normal;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .menu-wrap {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 1.7rem;
+        }
+
+        .nav a {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: var(--ink-soft);
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.25s ease;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--ink);
+        }
+
+        .nav a:hover::after,
+        .nav a.active::after {
+            width: 100%;
+        }
+
+        .header .btn {
+            padding: 0.7rem 1.4rem;
+            font-size: 0.75rem;
+        }
+
+        .lang-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 44px;
+            height: 38px;
+            padding: 0 0.8rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: transparent;
+            color: var(--ink);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--ink);
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--ink);
+            padding: 0.4rem;
+        }
+
+        .menu-btn .icon {
+            width: 1.6rem;
+            height: 1.6rem;
+            stroke-width: 2;
+        }
+
+        .menu-btn .icon-close {
             display: none;
         }
 
-        .no-scrollbar {
-            -ms-overflow-style: none;
+        .menu-open .menu-btn .icon-open {
+            display: none;
+        }
+
+        .menu-open .menu-btn .icon-close {
+            display: block;
+        }
+
+        .hero {
+            position: relative;
+            padding: calc(72px + clamp(3rem, 10vw, 7rem)) 0 clamp(3rem, 7vw, 5rem);
+            overflow: hidden;
+        }
+
+        .bg-pattern {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            color: var(--ink);
+            opacity: 0.04;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bg-pattern svg {
+            width: min(900px, 90%);
+            height: auto;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: clamp(2rem, 6vw, 5rem);
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            align-items: flex-start;
+        }
+
+        .hero-role {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.9rem;
+            border-left: 3px solid var(--accent);
+            padding-left: 1.1rem;
+        }
+
+        .hero-role span {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-role i {
+            font-style: normal;
+            color: var(--muted);
+        }
+
+        .hero-desc {
+            color: var(--ink-soft);
+            font-size: 1.05rem;
+            max-width: 44ch;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.6rem 1.1rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            transition: all 0.2s ease;
+        }
+
+        .social svg {
+            width: 1.1rem;
+            height: 1.1rem;
+            fill: currentColor;
+        }
+
+        .social:hover {
+            border-color: var(--ink);
+            color: var(--ink);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .portrait {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            background: var(--surface);
+            aspect-ratio: 4 / 5;
+        }
+
+        .portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.05);
+            transition: filter 0.7s ease, transform 0.7s ease;
+        }
+
+        .portrait:hover img {
+            filter: grayscale(0);
+            transform: scale(1.03);
+        }
+
+        .waveform {
+            position: absolute;
+            right: 1.1rem;
+            bottom: 1.1rem;
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 52px;
+            padding: 0.6rem;
+            background: rgba(245, 244, 241, 0.85);
+            backdrop-filter: blur(6px);
+            border-radius: 4px;
+        }
+
+        .waveform i {
+            width: 3px;
+            background: var(--ink);
+            animation: wave 1.4s ease-in-out infinite alternate;
+        }
+
+        .waveform i:nth-child(1) {
+            height: 35%;
+            animation-delay: 0s;
+        }
+
+        .waveform i:nth-child(2) {
+            height: 60%;
+            animation-delay: 0.15s;
+        }
+
+        .waveform i:nth-child(3) {
+            height: 90%;
+            animation-delay: 0.3s;
+        }
+
+        .waveform i:nth-child(4) {
+            height: 100%;
+            animation-delay: 0.45s;
+        }
+
+        .waveform i:nth-child(5) {
+            height: 75%;
+            animation-delay: 0.6s;
+        }
+
+        .waveform i:nth-child(6) {
+            height: 55%;
+            animation-delay: 0.75s;
+        }
+
+        .waveform i:nth-child(7) {
+            height: 40%;
+            animation-delay: 0.9s;
+        }
+
+        @keyframes wave {
+            from {
+                transform: scaleY(0.55);
+            }
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        .hero-corner {
+            position: absolute;
+            left: -1.1rem;
+            bottom: -1.1rem;
+            width: 5rem;
+            height: 5rem;
+            border-left: 2px solid var(--accent);
+            border-bottom: 2px solid var(--accent);
+            border-radius: 0 0 0 var(--radius);
+            z-index: -1;
+        }
+
+        .stats {
+            background: var(--dark);
+            color: #fff;
+            padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem;
+            background: var(--dark-soft);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat .icon {
+            width: 1.9rem;
+            height: 1.9rem;
+            color: var(--accent);
+            stroke-width: 1.6;
+        }
+
+        .stat h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .stat p {
+            color: rgba(255, 255, 255, 0.62);
+            font-size: 0.94rem;
+        }
+
+        .section {
+            padding: clamp(4rem, 8vw, 7rem) 0;
+        }
+
+        .section-head {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-head .lead {
+            margin-top: 1.1rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: clamp(2rem, 5vw, 4rem);
+        }
+
+        .quote {
+            font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+            font-weight: 600;
+            line-height: 1.35;
+            border-left: 3px solid var(--accent);
+            padding-left: 1.3rem;
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+        }
+
+        .about-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+        }
+
+        .about-cols p {
+            color: var(--ink-soft);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .audio {
+            background: var(--surface);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .audio-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: clamp(2.5rem, 6vw, 5rem);
+            align-items: center;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem 2.2rem;
+            margin-top: 2.8rem;
+        }
+
+        .feature {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .feature .icon {
+            width: 1.75rem;
+            height: 1.75rem;
+            color: var(--accent);
+            stroke-width: 1.6;
+            margin-bottom: 0.25rem;
+        }
+
+        .feature h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .feature p {
+            font-size: 0.92rem;
+            color: var(--ink-soft);
+            line-height: 1.7;
+        }
+
+        .audio-visual {
+            position: relative;
+        }
+
+        .audio-img {
+            overflow: hidden;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            aspect-ratio: 1 / 1;
+        }
+
+        .audio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.7s ease, transform 0.7s ease;
+        }
+
+        .audio-img:hover img {
+            filter: grayscale(0);
+            transform: scale(1.03);
+        }
+
+        .audio-badge {
+            position: absolute;
+            left: -0.9rem;
+            bottom: 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--ink);
+            color: #fff;
+            padding: 0.6rem 1.1rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .audio-badge .icon {
+            width: 1rem;
+            height: 1rem;
+            color: var(--accent);
+            stroke-width: 2.4;
+        }
+
+        .audio-corner {
+            position: absolute;
+            top: -1.1rem;
+            right: -1.1rem;
+            width: 5.5rem;
+            height: 5.5rem;
+            border-top: 2px solid var(--accent);
+            border-right: 2px solid var(--accent);
+            border-radius: 0 var(--radius) 0 0;
+            z-index: -1;
+        }
+
+        .projects {
+            background: var(--dark);
+            color: #fff;
+        }
+
+        .projects .h2,
+        .projects .lead {
+            color: #fff;
+        }
+
+        .projects .lead {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .slider-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-top: 1.2rem;
+        }
+
+        .slider-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .slider-btn {
+            display: grid;
+            place-items: center;
+            width: 46px;
+            height: 46px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: transparent;
+            color: #fff;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .slider-btn .icon {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        .slider-wrap {
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            gap: 1.6rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
             scrollbar-width: none;
+            padding-bottom: 0.75rem;
+        }
+
+        .slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slide {
+            flex: 0 0 min(560px, 88%);
+            scroll-snap-align: center;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            padding: 1.4rem;
+            background: var(--dark-soft);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+        }
+
+        .project-thumb {
+            overflow: hidden;
+            border-radius: calc(var(--radius) - 2px);
+            aspect-ratio: 16 / 10;
+            background: #000;
+        }
+
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-thumb img {
+            transform: scale(1.06);
+        }
+
+        .project-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            background: #fff;
+            color: var(--dark);
+            padding: 0.35rem 0.7rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .project-desc {
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 0.94rem;
+            line-height: 1.7;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: auto;
+        }
+
+        .project-tech span:not(:first-child)::before {
+            content: "·";
+            margin-right: 0.45rem;
+            color: var(--accent);
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.6rem;
+        }
+
+        .dot {
+            width: 34px;
+            height: 4px;
+            border: none;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: background 0.25s ease;
+        }
+
+        .dot.active {
+            background: var(--accent);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem 2.2rem;
+        }
+
+        .tech-group h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.3rem;
+        }
+
+        .tech-group h4 .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--accent);
+            stroke-width: 1.8;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .chip {
+            padding: 0.6rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink);
+            transition: all 0.2s ease;
+        }
+
+        .chip:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .chip-dark {
+            background: var(--ink);
+            color: #fff;
+            border-color: var(--ink);
+        }
+
+        .chip-dark:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .list-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .list-lines li {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--ink-soft);
+            border-left: 2px solid var(--accent);
+            padding-left: 1rem;
+        }
+
+        .db-grid,
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .db-box {
+            text-align: center;
+            padding: 1rem 0.75rem;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .db-box:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .tool {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.8rem 0.9rem;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            transition: all 0.2s ease;
+        }
+
+        .tool .icon {
+            width: 1.15rem;
+            height: 1.15rem;
+            color: var(--muted);
+        }
+
+        .tool span {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .tool:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .tool:hover .icon {
+            color: var(--accent);
+        }
+
+        .footer {
+            background: var(--dark);
+            color: #fff;
+            padding: clamp(4rem, 8vw, 6.5rem) 0 2.5rem;
+        }
+
+        .footer-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.4rem;
+        }
+
+        .footer-hero h2 {
+            color: #fff;
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+        }
+
+        .footer-hero p {
+            color: rgba(255, 255, 255, 0.62);
+            font-size: 1.1rem;
+            max-width: 48ch;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-email {
+            font-size: clamp(1rem, 2.6vw, 1.4rem);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.25rem;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .footer-email:hover {
+            color: var(--accent);
+        }
+
+        .footer-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .footer-wa .icon {
+            width: 1.4rem;
+            height: 1.4rem;
+            color: var(--accent);
+        }
+
+        .footer-wa:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 4rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .copyright::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 99px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+
+        .footer-links a {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .to-top {
+            position: fixed;
+            right: 1.25rem;
+            bottom: 1.25rem;
+            z-index: 90;
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            background: var(--ink);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.3s ease;
+        }
+
+        .to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .to-top:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .to-top .icon {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1000px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .menu-wrap {
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 1rem 1.5rem 1.6rem;
+                background: var(--bg);
+                border-bottom: 1px solid var(--line);
+                box-shadow: var(--shadow);
+                transform: translateY(-12px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.25s ease;
+            }
+
+            .menu-open .menu-wrap {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+            }
+
+            .nav a {
+                padding: 0.8rem 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .menu-wrap .btn {
+                margin-top: 1rem;
+            }
+
+            .hero-grid,
+            .audio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                max-width: 460px;
+            }
+
+            .audio-visual {
+                max-width: 460px;
+                order: -1;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .brand em {
+                display: none;
+            }
+
+            .lang-btn {
+                min-width: 40px;
+                height: 36px;
+            }
+
+            .features,
+            .about-cols,
+            .tech-grid,
+            .db-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+            }
+
+            .slider-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .slide {
+                flex-basis: 92%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
 </head>
 
-<body class="bg-background-light text-primary font-display antialiased">
-    <div class="relative flex min-h-screen flex-col overflow-x-hidden">
-        <!-- Header/Navigation -->
-        <header class="sticky top-0 z-50 w-full border-b border-primary/5 bg-background-light/80 backdrop-blur-md">
-            <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
-                <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-2xl">terminal</span>
-                    <h2 class="text-xl font-bold tracking-tighter uppercase">Cristian Pedraza</h2>
-                </div>
-                <nav class="hidden md:flex items-center gap-10">
-                    <a class="text-xs font-medium uppercase tracking-widest hover:opacity-60 transition-opacity"
-                        href="#sobre-mi">Sobre mí</a>
-                    <a class="text-xs font-medium uppercase tracking-widest hover:opacity-60 transition-opacity"
-                        href="#audio">Audio</a>
-                    <a class="text-xs font-medium uppercase tracking-widest hover:opacity-60 transition-opacity"
-                        href="#experiencia">Experiencia</a>
-                    <a class="text-xs font-medium uppercase tracking-widest hover:opacity-60 transition-opacity"
-                        href="#proyectos">Proyectos</a>
-                    <a class="text-xs font-medium uppercase tracking-widest hover:opacity-60 transition-opacity"
-                        href="#tecnologias">Tecnologías</a>
+<body>
+    <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
+
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a class="brand" href="#" aria-label="Cristian Pedraza, inicio">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="16" rx="1" />
+                    <path d="m8 9 3 3-3 3" />
+                    <path d="M13 15h4" />
+                </svg>
+                <span>Cristian <em>Pedraza</em></span>
+            </a>
+
+            <button class="lang-btn" id="langBtn" aria-label="Cambiar idioma a inglés" type="button">EN</button>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Abrir menú de navegación" aria-expanded="false"
+                aria-controls="menuWrap">
+                <svg class="icon icon-open" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+                <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6 6 18" />
+                </svg>
+            </button>
+
+            <div class="menu-wrap" id="menuWrap">
+                <nav class="nav" aria-label="Navegación principal">
+                    <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+                    <a href="#experiencia" data-i18n="nav.experience">Experiencia</a>
+                    <a href="#audio" data-i18n="nav.audio">Audio</a>
+                    <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+                    <a href="#tecnologias" data-i18n="nav.tech">Tecnologías</a>
                 </nav>
-                <a href="#contacto"
-                    class="bg-primary text-white px-6 py-2 text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 transition-colors inline-block">
-                    Contacto
+                <a class="btn btn-primary" href="#contacto">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22 2 11 13" />
+                        <path d="M22 2 15 22l-4-9-9-4Z" />
+                    </svg>
+                    <span data-i18n="nav.contact">Contacto</span>
                 </a>
             </div>
-        </header>
-        <main class="flex-grow">
-            <!-- Hero Section -->
-            <section class="relative flex items-center justify-center px-6 lg:px-12 min-h-[70vh] pt-8 pb-12"
-                id="sobre-mi">
-                <div
-                    class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none flex items-center justify-center overflow-hidden">
-                    <!-- Abstract AI Geometric Node Pattern -->
-                    <svg height="100%" viewbox="0 0 800 800" width="100%" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="400" cy="400" fill="none" r="300" stroke="currentColor" stroke-width="1"></circle>
-                        <circle cx="400" cy="400" fill="none" r="200" stroke="currentColor" stroke-width="1"></circle>
-                        <line stroke="currentColor" stroke-width="1" x1="200" x2="600" y1="200" y2="600"></line>
-                        <line stroke="currentColor" stroke-width="1" x1="600" x2="200" y1="200" y2="600"></line>
-                        <circle cx="200" cy="200" fill="currentColor" r="5"></circle>
-                        <circle cx="600" cy="200" fill="currentColor" r="5"></circle>
-                        <circle cx="200" cy="600" fill="currentColor" r="5"></circle>
-                        <circle cx="600" cy="600" fill="currentColor" r="5"></circle>
-                    </svg>
-                </div>
-                <div class="z-10 mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="flex flex-col space-y-8">
-                        <div class="space-y-2">
-                            <p class="text-xs font-bold uppercase tracking-[0.3em] text-neutral-400">Portfolio
-                                Profesional</p>
-                            <h1 class="text-6xl md:text-8xl font-bold tracking-tighter leading-none">
-                                CRISTIAN<br />PEDRAZA
-                            </h1>
-                        </div>
-                        <div class="flex flex-wrap gap-x-6 gap-y-2 border-l-2 border-primary pl-6">
-                            <span class="text-lg font-medium tracking-tight">Fullstack Developer</span>
-                            <span class="text-neutral-300">|</span>
-                            <span class="text-lg font-medium tracking-tight">Sound Engineer</span>
-                            <span class="text-neutral-300">|</span>
-                            <span class="text-lg font-medium tracking-tight">AI Specialist</span>
-                        </div>
-                        <p class="max-w-md text-lg leading-relaxed text-neutral-600">
-                            Fusionando el arte del sonido con la precisión del código y la potencia de la Inteligencia
-                            Artificial para crear experiencias digitales únicas.
-                        </p>
-                        <div class="flex gap-4 pt-4">
-                            <a href="#proyectos"
-                                class="bg-primary text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 transition-all inline-block">
-                                Ver Proyectos
-                            </a>
-                            <a href="#contacto"
-                                class="border border-primary text-primary px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all inline-block">
-                                Contacto
-                            </a>
-                        </div>
-                        <!-- Socials -->
-                        <div class="flex items-center gap-6 pt-8">
-                            <a class="group flex items-center gap-2"
-                                href="https://www.linkedin.com/in/cristian-pedraza-hoyos-96b830252/" target="_blank">
-                                <div
-                                    class="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 group-hover:border-primary transition-colors">
-                                    <svg class="h-5 w-5 fill-neutral-400 group-hover:fill-primary transition-colors"
-                                        viewbox="0 0 24 24">
-                                        <path
-                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <span
-                                    class="text-[10px] font-bold uppercase tracking-widest text-neutral-400">LinkedIn</span>
-                            </a>
-                            <a class="group flex items-center gap-2" href="https://github.com/CrisDev96"
-                                target="_blank">
-                                <div
-                                    class="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 group-hover:border-primary transition-colors">
-                                    <svg class="h-5 w-5 fill-neutral-400 group-hover:fill-primary transition-colors"
-                                        viewbox="0 0 24 24">
-                                        <path
-                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <span
-                                    class="text-[10px] font-bold uppercase tracking-widest text-neutral-400">GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="relative hidden lg:block">
-                        <div class="aspect-[4/5] w-full bg-neutral-100 overflow-hidden relative">
-                            <img alt="Professional portrait of Cristian Pedraza"
-                                class="h-full w-full object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-700"
-                                data-alt="Modern professional portrait of a tech expert"
-                                src="assets/profile_pic.png" />
-                            <div class="absolute bottom-6 right-6">
-                                <!-- Minimalist Waveform visual cue -->
-                                <div class="flex items-end gap-1 h-12">
-                                    <div class="waveform-bar h-2"></div>
-                                    <div class="waveform-bar h-4"></div>
-                                    <div class="waveform-bar h-8"></div>
-                                    <div class="waveform-bar h-10"></div>
-                                    <div class="waveform-bar h-6"></div>
-                                    <div class="waveform-bar h-12"></div>
-                                    <div class="waveform-bar h-4"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="absolute -bottom-4 -left-4 h-24 w-24 border-b-2 border-l-2 border-primary"></div>
-                    </div>
-                </div>
-            </section>
-            <!-- Stats / Focus Area -->
-            <section class="bg-primary py-20 text-white">
-                <div class="mx-auto max-w-7xl px-6 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="space-y-4">
-                        <span class="material-symbols-outlined text-4xl opacity-50">code</span>
-                        <h3 class="text-xl font-bold uppercase tracking-widest">Desarrollo</h3>
-                        <p class="text-neutral-400 text-sm leading-relaxed">Arquitecturas robustas, código limpio y
-                            escalable. Especialista en Django, React, Node.js, PHP, TypeScript, HTML5, CSS3 y
-                            ecosistemas Cloud.</p>
-                    </div>
-                    <div class="space-y-4">
-                        <span class="material-symbols-outlined text-4xl opacity-50">surround_sound</span>
-                        <h3 class="text-xl font-bold uppercase tracking-widest">Audio</h3>
-                        <p class="text-neutral-400 text-sm leading-relaxed">Diseño sonoro y procesamiento de señales,
-                            integrando
-                            principios de acústica y tecnologías digitales para optimizar la calidad del sonido en
-                            diferentes
-                            espacios y aplicaciones.</p>
-                    </div>
-                    <div class="space-y-4">
-                        <span class="material-symbols-outlined text-4xl opacity-50">psychology</span>
-                        <h3 class="text-xl font-bold uppercase tracking-widest">Inteligencia Artificial</h3>
-                        <p class="text-neutral-400 text-sm leading-relaxed">Integración de modelos de Machine Learning,
-                            Deep Learning y Reinforcement Learning,
-                            incluyendo aplicaciones como visión por computador, análisis predictivo de irregularidades
-                            en tejidos biopsiados y entrenamiento
-                            de agentes capaces de interactuar y aprender a jugar videojuegos en entornos Atari.</p>
-                    </div>
-                </div>
-            </section>
-            <!-- About Section -->
-            <section class="py-32 px-6 lg:px-12 bg-white" id="experiencia">
-                <div class="mx-auto max-w-7xl">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-                        <div class="lg:col-span-4">
-                            <h2 class="text-sm font-bold uppercase tracking-[0.4em] text-neutral-300 mb-4">01. Sobre Mí
-                            </h2>
-                            <h3 class="text-4xl font-bold tracking-tighter">La intersección de disciplinas.</h3>
-                        </div>
-                        <div class="lg:col-span-8 space-y-8">
-                            <p class="text-2xl text-neutral-600 leading-tight">
-                                "Mi enfoque combina la ingeniería de sonido con la creatividad
-                                y el desarrollo web."
-                            </p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-neutral-500 leading-relaxed">
-                                <p>Como Ingeniero de Sonido, aprendí a ser preciso basandome en las mátematicas y la
-                                    física. Como Desarrollador
-                                    Fullstack, aprendí a construir herramientas que ayudan a personas del día a día.
-                                    Hoy, la
-                                    IA es el puente para conectar ambos mundos y crear nuevas aplicaciones.</p>
-                                <p>He liderado proyectos desde la concepción técnica hasta la implementación de
-                                    algoritmos complejos, siempre priorizando una experiencia de usuario impecable y una
-                                    arquitectura escalable y sostenible.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Sound Engineering Section -->
-            <section class="py-32 px-6 lg:px-12 bg-neutral-50" id="audio">
-                <div class="mx-auto max-w-7xl">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                        <div class="lg:col-span-7 space-y-12">
-                            <div>
-                                <h2 class="text-sm font-bold uppercase tracking-[0.4em] text-neutral-300 mb-4">02. Ingeniería de Sonido</h2>
-                                <h3 class="text-5xl font-bold tracking-tighter mb-6">Precisión técnica y arte sonoro.</h3>
-                                <p class="text-xl text-neutral-600 leading-relaxed max-w-2xl">
-                                    Experto en la optimización de entornos acústicos y la producción de audio de alta fidelidad, aplicando principios físicos y matemáticos para lograr la excelencia sonora.
-                                </p>
-                            </div>
+        </div>
+    </header>
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                                <div class="space-y-4">
-                                    <div class="flex items-center gap-3">
-                                        <span class="material-symbols-outlined text-primary">architecture</span>
-                                        <h4 class="font-bold uppercase tracking-widest text-sm">Diseño Acústico</h4>
-                                    </div>
-                                    <p class="text-sm text-neutral-500 leading-relaxed">
-                                        Creación de diseños acústicos integrales para estudios y espacios profesionales, garantizando una respuesta en frecuencia equilibrada.
-                                    </p>
-                                </div>
-                                <div class="space-y-4">
-                                    <div class="flex items-center gap-3">
-                                        <span class="material-symbols-outlined text-primary">dynamic_form</span>
-                                        <h4 class="font-bold uppercase tracking-widest text-sm">Acondicionamiento</h4>
-                                    </div>
-                                    <p class="text-sm text-neutral-500 leading-relaxed">
-                                        Acondicionamiento y aislamiento acústico avanzado para el control de reflexiones, tiempos de reverberación y transmisión de ruido.
-                                    </p>
-                                </div>
-                                <div class="space-y-4">
-                                    <div class="flex items-center gap-3">
-                                        <span class="material-symbols-outlined text-primary">graphic_eq</span>
-                                        <h4 class="font-bold uppercase tracking-widest text-sm">Diseño de Sonido</h4>
-                                    </div>
-                                    <p class="text-sm text-neutral-500 leading-relaxed">
-                                        Creación de texturas y paisajes sonoros únicos para medios digitales, videojuegos y aplicaciones interactivas.
-                                    </p>
-                                </div>
-                                <div class="space-y-4">
-                                    <div class="flex items-center gap-3">
-                                        <span class="material-symbols-outlined text-primary">mic_external_on</span>
-                                        <h4 class="font-bold uppercase tracking-widest text-sm">Post-Producción</h4>
-                                    </div>
-                                    <p class="text-sm text-neutral-500 leading-relaxed">
-                                        Grabación, edición, mezcla y mastering profesional (Stereo/Surround) con estándares de industria.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:col-span-5 relative">
-                            <div class="aspect-square bg-neutral-200 overflow-hidden relative border border-neutral-200">
-                                <img src="assets/acoustic_design.png" alt="Diseño Acústico Profesional" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                            </div>
-                            <!-- Minimalist technical detail decoration -->
-                            <div class="absolute -top-6 -right-6 h-32 w-32 border-t-2 border-r-2 border-primary/20 hidden xl:block"></div>
-                            <div class="absolute -bottom-4 -left-4 flex items-center gap-2 bg-primary text-white px-4 py-2 text-[10px] font-bold uppercase tracking-widest">
-                                <span class="material-symbols-outlined text-sm">check_circle</span>
-                                Calidad Certificada
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Selected Projects (Teaser) -->
-            <section class="py-20 px-6 lg:px-12 bg-primary text-white" id="proyectos">
-                <div class="mx-auto max-w-7xl">
-                    <div class="mb-16">
-                        <h2 class="text-sm font-bold uppercase tracking-[0.4em] text-neutral-300 mb-4">03. Proyectos
-                        </h2>
-                        <h3 class="text-5xl font-bold tracking-tighter">Trabajo Desarrollado</h3>
-                    </div>
-                    <div class="relative overflow-hidden group/container">
-                        <div id="project-slider"
-                            class="flex gap-8 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-4">
-                            <!-- RidePro -->
-                            <div class="flex-shrink-0 w-full md:w-[600px] snap-center">
-                                <div
-                                    class="group cursor-default bg-neutral-900/50 p-6 border border-neutral-800 hover:border-primary transition-all duration-500">
-                                    <div class="aspect-video bg-neutral-800 overflow-hidden mb-6 relative">
-                                        <img alt="RidePro Backend"
-                                            class="h-full w-full object-cover transition-transform duration-700"
-                                            src="assets/RidePro.png" />
-                                    </div>
-                                    <div class="space-y-4">
-                                        <div class="flex justify-between items-center">
-                                            <h4 class="text-2xl font-bold tracking-tight">RidePro</h4>
-                                            <span
-                                                class="text-[10px] font-bold uppercase tracking-widest text-primary bg-white px-2 py-1">Backend
-                                                Developer</span>
-                                        </div>
-                                        <p class="text-neutral-400 text-sm leading-relaxed">
-                                            Desarrollo y mantenimiento del backend implementando APIs RESTful. Gestión
-                                            de modelos y optimización de consultas en MySQL y PostgreSQL.
-                                        </p>
-                                        <div
-                                            class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest text-neutral-500">
-                                            <span>Python</span> • <span>Django</span> • <span>DRF</span> •
-                                            <span>MySQL</span> • <span>PostgreSQL</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    <main id="main">
+        <section class="hero" id="sobre-mi">
+            <div class="bg-pattern" aria-hidden="true">
+                <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="400" cy="400" fill="none" r="300" stroke="currentColor" stroke-width="1"></circle>
+                    <circle cx="400" cy="400" fill="none" r="200" stroke="currentColor" stroke-width="1"></circle>
+                    <line stroke="currentColor" stroke-width="1" x1="200" x2="600" y1="200" y2="600"></line>
+                    <line stroke="currentColor" stroke-width="1" x1="600" x2="200" y1="200" y2="600"></line>
+                    <circle cx="200" cy="200" fill="currentColor" r="5"></circle>
+                    <circle cx="600" cy="200" fill="currentColor" r="5"></circle>
+                    <circle cx="200" cy="600" fill="currentColor" r="5"></circle>
+                    <circle cx="600" cy="600" fill="currentColor" r="5"></circle>
+                </svg>
+            </div>
 
-                            <!-- CariAI -->
-                            <div class="flex-shrink-0 w-full md:w-[600px] snap-center">
-                                <div
-                                    class="group cursor-default bg-neutral-900/50 p-6 border border-neutral-800 hover:border-primary transition-all duration-500">
-                                    <div class="aspect-video bg-neutral-800 overflow-hidden mb-6 relative">
-                                        <img alt="CariAI Chatbot"
-                                            class="h-full w-full object-cover transition-transform duration-700"
-                                            src="assets/CariAI.png" />
-                                    </div>
-                                    <div class="space-y-4">
-                                        <div class="flex justify-between items-center">
-                                            <h4 class="text-2xl font-bold tracking-tight">CariAI</h4>
-                                            <span
-                                                class="text-[10px] font-bold uppercase tracking-widest text-primary bg-white px-2 py-1">Chatbot
-                                                Developer</span>
-                                        </div>
-                                        <p class="text-neutral-400 text-sm leading-relaxed">
-                                            Integración de chatbots con APIs externas utilizando PHP y la plataforma de
-                                            CariAI. Procesamiento de
-                                            solicitudes y manejo de respuestas dinámicas.
-                                        </p>
-                                        <div
-                                            class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest text-neutral-500">
-                                            <span>PHP</span> • <span>APIs REST</span> • <span>Integrations</span> •
-                                            <span>Git</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="eyebrow reveal" data-i18n="hero.eyebrow">Portfolio Profesional</span>
+                    <h1 class="h1 reveal">Cristian<br />Pedraza</h1>
 
-                            <!-- MedicalSoft -->
-                            <div class="flex-shrink-0 w-full md:w-[600px] snap-center">
-                                <div
-                                    class="group cursor-default bg-neutral-900/50 p-6 border border-neutral-800 hover:border-primary transition-all duration-500">
-                                    <div class="aspect-video bg-neutral-800 overflow-hidden mb-6 relative">
-                                        <img alt="MedicalSoft Architecture"
-                                            class="h-full w-full object-cover transition-transform duration-700"
-                                            src="assets/MedicalSoft.png" />
-                                    </div>
-                                    <div class="space-y-4">
-                                        <div class="flex justify-between items-center">
-                                            <h4 class="text-2xl font-bold tracking-tight">MedicalSoft</h4>
-                                            <span
-                                                class="text-[10px] font-bold uppercase tracking-widest text-primary bg-white px-2 py-1">Fullstack
-                                                Developer</span>
-                                        </div>
-                                        <p class="text-neutral-400 text-sm leading-relaxed">
-                                            Refactorización de arquitectura modular. Separación de responsabilidades e
-                                            implementación de servicios en TypeScript.
-                                        </p>
-                                        <div
-                                            class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest text-neutral-500">
-                                            <span>PHP</span> • <span>TypeScript</span> • <span>Express</span> •
-                                            <span>Modular Auth</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Cafecito Global -->
-                            <div class="flex-shrink-0 w-full md:w-[600px] snap-center">
-                                <div
-                                    class="group cursor-default bg-neutral-900/50 p-6 border border-neutral-800 hover:border-primary transition-all duration-500">
-                                    <div class="aspect-video bg-neutral-800 overflow-hidden mb-6 relative">
-                                        <img alt="Cafecito Global App"
-                                            class="h-full w-full object-cover transition-transform duration-700"
-                                            src="assets/Cafecito.png" />
-                                    </div>
-                                    <div class="space-y-4">
-                                        <div class="flex justify-between items-center">
-                                            <h4 class="text-2xl font-bold tracking-tight">Cafecito Global</h4>
-                                            <span
-                                                class="text-[10px] font-bold uppercase tracking-widest text-primary bg-white px-2 py-1">Fullstack
-                                                Developer</span>
-                                        </div>
-                                        <p class="text-neutral-400 text-sm leading-relaxed">
-                                            App web fullstack con React y AWS. Configuración de Nginx, Gunicorn y
-                                            seguridad con JWT para autenticación.
-                                        </p>
-                                        <div
-                                            class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest text-neutral-500">
-                                            <span>React</span> • <span>AWS</span> • <span>Nginx</span> •
-                                            <span>JWT</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slider Navigation Indicators (Optional visual cue) -->
-                        <div class="flex justify-center gap-2 mt-8">
-                            <div class="h-1 w-8 bg-white opacity-20"></div>
-                            <div class="h-1 w-8 bg-white opacity-20"></div>
-                            <div class="h-1 w-8 bg-white opacity-20"></div>
-                            <div class="h-1 w-8 bg-white opacity-20"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <script>
-                const slider = document.getElementById('project-slider');
-                let isPaused = false;
-                let scrollInterval;
-
-                const startAutoScroll = () => {
-                    scrollInterval = setInterval(() => {
-                        if (!isPaused) {
-                            const maxScroll = slider.scrollWidth - slider.clientWidth;
-                            if (slider.scrollLeft >= maxScroll - 1) {
-                                slider.scrollTo({ left: 0, behavior: 'smooth' });
-                            } else {
-                                slider.scrollBy({ left: 300, behavior: 'smooth' });
-                            }
-                        }
-                    }, 3000);
-                };
-
-                slider.addEventListener('mouseenter', () => isPaused = true);
-                slider.addEventListener('mouseleave', () => isPaused = false);
-
-                startAutoScroll();
-            </script>
-            <!-- Technologies & Tools Section -->
-            <section class="py-32 px-6 lg:px-12 bg-white" id="tecnologias">
-                <div class="mx-auto max-w-7xl">
-                    <div class="flex flex-col gap-6 mb-20">
-                        <h2 class="text-sm font-bold uppercase tracking-[0.4em] text-neutral-300">04. Stack Técnico</h2>
-                        <h3 class="text-5xl font-bold tracking-tighter leading-tight">Tecnologías y Herramientas</h3>
-                        <p class="text-neutral-500 text-lg max-w-2xl">Mi stack técnico y herramientas de desarrollo
-                            especializado para la creación de soluciones digitales escalables y eficientes.</p>
+                    <div class="hero-role reveal">
+                        <span data-i18n="hero.role1">Fullstack Developer</span>
+                        <i>·</i>
+                        <span data-i18n="hero.role2">Sound Engineer</span>
+                        <i>·</i>
+                        <span data-i18n="hero.role3">AI Specialist</span>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-                        <!-- 1. Lenguajes -->
-                        <div class="space-y-6">
-                            <h4 class="text-xl font-bold flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary">code</span>
-                                Lenguajes
-                            </h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-4 py-2 bg-neutral-50 border border-neutral-100 text-xs font-bold uppercase tracking-widest">Python</span>
-                                <span
-                                    class="px-4 py-2 bg-neutral-50 border border-neutral-100 text-xs font-bold uppercase tracking-widest">TypeScript</span>
-                                <span
-                                    class="px-4 py-2 bg-neutral-50 border border-neutral-100 text-xs font-bold uppercase tracking-widest">JavaScript</span>
-                                <span
-                                    class="px-4 py-2 bg-neutral-50 border border-neutral-100 text-xs font-bold uppercase tracking-widest">PHP</span>
-                                <span
-                                    class="px-4 py-2 bg-neutral-50 border border-neutral-100 text-xs font-bold uppercase tracking-widest">SQL</span>
-                            </div>
-                        </div>
+                    <p class="hero-desc reveal" data-i18n="hero.desc">
+                        Fusionando el arte del sonido con la precisión del código y la potencia de la Inteligencia
+                        Artificial para crear experiencias digitales únicas.
+                    </p>
 
-                        <!-- 2. Backend -->
-                        <div class="space-y-6">
-                            <h4 class="text-xl font-bold flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary">dns</span>
-                                Backend
-                            </h4>
-                            <div class="space-y-2">
-                                <p class="text-sm font-medium border-l-2 border-primary pl-4">Django / DRF</p>
-                                <p class="text-sm font-medium border-l-2 border-primary pl-4">Express.js</p>
-                                <p class="text-sm font-medium border-l-2 border-primary pl-4">TypeORM</p>
-                            </div>
-                        </div>
-
-                        <!-- 3. Frontend -->
-                        <div class="space-y-6">
-                            <h4 class="text-xl font-bold flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary">web</span>
-                                Frontend
-                            </h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-4 py-2 bg-primary text-white text-xs font-bold uppercase tracking-widest">React</span>
-                                <span
-                                    class="px-4 py-2 bg-neutral-50 border border-neutral-100 text-xs font-bold uppercase tracking-widest">Vite</span>
-                                <span
-                                    class="px-4 py-2 bg-neutral-50 border border-neutral-100 text-xs font-bold uppercase tracking-widest">HTML5
-                                    / CSS3</span>
-                            </div>
-                        </div>
-
-                        <!-- 4. Bases de Datos -->
-                        <div class="space-y-6">
-                            <h4 class="text-xl font-bold flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary">database</span>
-                                Databases
-                            </h4>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="p-4 bg-neutral-50 text-center">
-                                    <p class="text-xs font-bold uppercase tracking-widest">MySQL</p>
-                                </div>
-                                <div class="p-4 bg-neutral-50 text-center">
-                                    <p class="text-xs font-bold uppercase tracking-widest">PostgreSQL</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 5. Cloud & DevOps -->
-                        <div class="space-y-6">
-                            <h4 class="text-xl font-bold flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                                Cloud & DevOps
-                            </h4>
-                            <ul class="text-sm space-y-2 text-neutral-500">
-                                <li>• AWS (EC2, VPC, S3)</li>
-                                <li>• Nginx & Gunicorn</li>
-                                <li>• CI/CD Pipelines</li>
-                            </ul>
-                        </div>
-
-                        <!-- 6. Herramientas -->
-                        <div class="space-y-6 border-t border-neutral-100 pt-8 lg:border-t-0 lg:pt-0">
-                            <h4 class="text-xl font-bold flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary">construction</span>
-                                Herramientas
-                            </h4>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div
-                                    class="group flex items-center gap-3 p-3 bg-neutral-50 border border-neutral-100 hover:border-primary transition-colors cursor-default">
-                                    <span
-                                        class="material-symbols-outlined text-xl text-neutral-400 group-hover:text-primary transition-colors">terminal</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-widest">VS Code</span>
-                                </div>
-                                <div
-                                    class="group flex items-center gap-3 p-3 bg-neutral-50 border border-neutral-100 hover:border-primary transition-colors cursor-default">
-                                    <span
-                                        class="material-symbols-outlined text-xl text-neutral-400 group-hover:text-primary transition-colors">account_tree</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-widest">Git / GitHub</span>
-                                </div>
-                                <div
-                                    class="group flex items-center gap-3 p-3 bg-neutral-50 border border-neutral-100 hover:border-primary transition-colors cursor-default">
-                                    <span
-                                        class="material-symbols-outlined text-xl text-neutral-400 group-hover:text-primary transition-colors">send</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-widest">Postman</span>
-                                </div>
-                                <div
-                                    class="group flex items-center gap-3 p-3 bg-neutral-50 border border-neutral-100 hover:border-primary transition-colors cursor-default">
-                                    <span
-                                        class="material-symbols-outlined text-xl text-neutral-400 group-hover:text-primary transition-colors">view_kanban</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-widest">Jira / Trello</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="hero-actions reveal">
+                        <a class="btn btn-primary" href="#proyectos">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="m8 7-5 5 5 5" />
+                                <path d="m16 7 5 5-5 5" />
+                            </svg>
+                            <span data-i18n="hero.projects">Ver Proyectos</span>
+                        </a>
+                        <a class="btn btn-outline" href="#contacto" data-i18n="hero.contact">Contacto</a>
                     </div>
-                </div>
-            </section>
-        </main>
-        <!-- Footer / Contact -->
-        <footer class="bg-primary text-white py-20 px-6 lg:px-12" id="contacto">
-            <div class="mx-auto max-w-7xl">
-                <div class="flex flex-col items-center text-center space-y-10">
-                    <h2 class="text-5xl md:text-7xl font-bold tracking-tighter">Hagamos algo excepcional.</h2>
-                    <p class="text-neutral-400 max-w-xl text-lg">Disponible para colaboraciones estratégicas y proyectos
-                        de alto impacto tecnológico.</p>
-                    <div class="flex flex-col items-center gap-6">
-                        <a class="text-xl md:text-2xl font-bold tracking-tight border-b-2 border-white pb-1 hover:text-neutral-300 hover:border-neutral-300 transition-all"
-                            href="mailto:pedrazahoyoscristiandavid@gmail.com">pedrazahoyoscristiandavid@gmail.com</a>
-                        <a class="flex items-center gap-2 text-xl font-bold tracking-tight hover:text-neutral-300 transition-all"
-                            href="https://wa.me/573005624810" target="_blank">
-                            <span class="material-symbols-outlined">chat</span>
-                            WhatsApp: 3005624810
+
+                    <div class="socials reveal">
+                        <a class="social" href="https://www.linkedin.com/in/cristian-pedraza-hoyos-96b830252/"
+                            target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                            LinkedIn
+                        </a>
+                        <a class="social" href="https://github.com/CrisDev96" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            GitHub
                         </a>
                     </div>
                 </div>
-                <div
-                    class="mt-32 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div class="flex items-center gap-2">
-                        <div class="size-4 bg-white rounded-full"></div>
-                        <span class="text-xs font-bold uppercase tracking-widest">© 2026 Cristian Pedraza</span>
+
+                <div class="hero-visual reveal">
+                    <div class="portrait">
+                        <img alt="Retrato profesional de Cristian Pedraza" src="assets/profile_pic.png"
+                            data-i18n-alt="hero.alt" />
+                        <div class="waveform" aria-hidden="true">
+                            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                        </div>
                     </div>
-                    <div class="flex gap-10">
-                        <a class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 hover:text-white transition-colors"
-                            href="https://www.linkedin.com/in/cristian-pedraza-hoyos-96b830252/"
-                            target="_blank">LinkedIn</a>
-                        <a class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 hover:text-white transition-colors"
-                            href="https://github.com/CrisDev96" target="_blank">GitHub</a>
+                    <div class="hero-corner"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats" aria-label="Áreas de especialización">
+            <div class="container stats-grid">
+                <article class="stat reveal">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="m8 7-5 5 5 5" />
+                        <path d="m16 7 5 5-5 5" />
+                    </svg>
+                    <h3 data-i18n="stats.dev.title">Desarrollo</h3>
+                    <p data-i18n="stats.dev.desc">Arquitecturas robustas, código limpio y escalable. Especialista en
+                        Django, React, Node.js, PHP, TypeScript, HTML5, CSS3 y ecosistemas Cloud.</p>
+                </article>
+
+                <article class="stat reveal">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M2 12h1l2-7 3 14 3-18 3 16 2-5 1 0" />
+                    </svg>
+                    <h3 data-i18n="stats.audio.title">Audio</h3>
+                    <p data-i18n="stats.audio.desc">Diseño sonoro y procesamiento de señales, integrando principios de
+                        acústica y tecnologías digitales para optimizar la calidad del sonido.</p>
+                </article>
+
+                <article class="stat reveal">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="3" />
+                        <path d="M12 5v14M5 12h14" />
+                        <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(45 12 12)" />
+                    </svg>
+                    <h3 data-i18n="stats.ai.title">Inteligencia Artificial</h3>
+                    <p data-i18n="stats.ai.desc">Integración de modelos de Machine Learning, Deep Learning y
+                        Reinforcement Learning, incluyendo visión por computador, análisis predictivo y agentes para
+                        entornos Atari.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="experiencia">
+            <div class="container about-grid">
+                <div class="about-intro">
+                    <span class="eyebrow reveal" data-i18n="about.eyebrow">01 · Sobre Mí</span>
+                    <h2 class="h2 reveal" data-i18n="about.title">La intersección de disciplinas.</h2>
+                </div>
+                <div class="about-body">
+                    <blockquote class="quote reveal" data-i18n="about.quote">
+                        «Mi enfoque combina la ingeniería de sonido con la creatividad y el desarrollo web.»
+                    </blockquote>
+                    <div class="about-cols">
+                        <p class="reveal" data-i18n="about.p1">Como Ingeniero de Sonido, aprendí a ser preciso
+                            basándome en las matemáticas y la física. Como Desarrollador Fullstack, aprendí a construir
+                            herramientas que ayudan a personas del día a día. Hoy, la IA es el puente para conectar
+                            ambos mundos y crear nuevas aplicaciones.</p>
+                        <p class="reveal" data-i18n="about.p2">He liderado proyectos desde la concepción técnica hasta
+                            la implementación de algoritmos complejos, siempre priorizando una experiencia de usuario
+                            impecable y una arquitectura escalable y sostenible.</p>
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </section>
+
+        <section class="section audio" id="audio">
+            <div class="container audio-grid">
+                <div>
+                    <span class="eyebrow reveal" data-i18n="audio.eyebrow">02 · Ingeniería de Sonido</span>
+                    <h2 class="h2 reveal" data-i18n="audio.title">Precisión técnica y arte sonoro.</h2>
+                    <p class="lead reveal" style="margin-top: 1.1rem;" data-i18n="audio.lead">
+                        Experto en la optimización de entornos acústicos y la producción de audio de alta fidelidad,
+                        aplicando principios físicos y matemáticos para lograr la excelencia sonora.
+                    </p>
+
+                    <div class="features">
+                        <div class="feature reveal">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="4" y="3" width="16" height="18" rx="1" />
+                                <circle cx="12" cy="12" r="3" />
+                                <path d="M12 5v2" />
+                            </svg>
+                            <h4 data-i18n="audio.f1.title">Diseño Acústico</h4>
+                            <p data-i18n="audio.f1.desc">Creación de diseños acústicos integrales para estudios y
+                                espacios profesionales, garantizando una respuesta en frecuencia equilibrada.</p>
+                        </div>
+
+                        <div class="feature reveal">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 6h16M4 12h16M4 18h16" />
+                                <circle cx="9" cy="6" r="2" />
+                                <circle cx="15" cy="12" r="2" />
+                                <circle cx="7" cy="18" r="2" />
+                            </svg>
+                            <h4 data-i18n="audio.f2.title">Acondicionamiento</h4>
+                            <p data-i18n="audio.f2.desc">Acondicionamiento y aislamiento acústico avanzado para el
+                                control de reflexiones, tiempos de reverberación y transmisión de ruido.</p>
+                        </div>
+
+                        <div class="feature reveal">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M5 21V9M9.5 21V5M14 21V12M18.5 21V3" />
+                            </svg>
+                            <h4 data-i18n="audio.f3.title">Diseño de Sonido</h4>
+                            <p data-i18n="audio.f3.desc">Creación de texturas y paisajes sonoros únicos para medios
+                                digitales, videojuegos y aplicaciones interactivas.</p>
+                        </div>
+
+                        <div class="feature reveal">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="9" y="2" width="6" height="11" rx="2" />
+                                <path d="M5 12a7 7 0 0 0 14 0" />
+                                <path d="M12 19v3" />
+                            </svg>
+                            <h4 data-i18n="audio.f4.title">Post-Producción</h4>
+                            <p data-i18n="audio.f4.desc">Grabación, edición, mezcla y mastering profesional
+                                (Stereo/Surround) con estándares de industria.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-visual reveal">
+                    <div class="audio-img">
+                        <img src="assets/acoustic_design.png" alt="Diseño Acústico Profesional"
+                            data-i18n-alt="audio.alt" />
+                    </div>
+                    <div class="audio-badge">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="m8.5 12 2.5 2.5 4.5-5" />
+                        </svg>
+                        <span data-i18n="audio.badge">Calidad Certificada</span>
+                    </div>
+                    <div class="audio-corner"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section projects" id="proyectos">
+            <div class="container">
+                <span class="eyebrow reveal" style="color: rgba(255,255,255,0.6);" data-i18n="projects.eyebrow">03 ·
+                    Proyectos</span>
+                <div class="slider-bar reveal">
+                    <h2 class="h2" data-i18n="projects.title">Trabajo Desarrollado</h2>
+                    <div class="slider-nav" aria-label="Controles del carrusel">
+                        <button class="slider-btn" id="prevBtn" aria-label="Proyecto anterior">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="m15 6-6 6 6 6" />
+                            </svg>
+                        </button>
+                        <button class="slider-btn" id="nextBtn" aria-label="Siguiente proyecto">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="m9 6 6 6-6 6" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="slider-wrap reveal" id="sliderWrap">
+                    <div class="slider" id="slider" tabindex="0" aria-label="Carrusel de proyectos">
+                        <div class="slide">
+                            <article class="project-card">
+                                <div class="project-thumb">
+                                    <img alt="RidePro Backend" src="assets/RidePro.png" />
+                                </div>
+                                <div class="project-head">
+                                    <h3 class="project-title">RidePro</h3>
+                                    <span class="tag" data-i18n="projects.tags.backend">Backend Developer</span>
+                                </div>
+                                <p class="project-desc" data-i18n="projects.p1.desc">Desarrollo y mantenimiento del
+                                    backend implementando APIs RESTful. Gestión de modelos y optimización de consultas
+                                    en MySQL y PostgreSQL.</p>
+                                <div class="project-tech">
+                                    <span>Python</span><span>Django</span><span>DRF</span><span>MySQL</span><span>PostgreSQL</span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="slide">
+                            <article class="project-card">
+                                <div class="project-thumb">
+                                    <img alt="CariAI Chatbot" src="assets/CariAI.png" />
+                                </div>
+                                <div class="project-head">
+                                    <h3 class="project-title">CariAI</h3>
+                                    <span class="tag" data-i18n="projects.tags.chatbot">Chatbot Developer</span>
+                                </div>
+                                <p class="project-desc" data-i18n="projects.p2.desc">Integración de chatbots con APIs
+                                    externas utilizando PHP y la plataforma de CariAI. Procesamiento de solicitudes y
+                                    manejo de respuestas dinámicas.</p>
+                                <div class="project-tech">
+                                    <span>PHP</span><span>APIs REST</span><span>Integrations</span><span>Git</span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="slide">
+                            <article class="project-card">
+                                <div class="project-thumb">
+                                    <img alt="MedicalSoft Architecture" src="assets/MedicalSoft.png" />
+                                </div>
+                                <div class="project-head">
+                                    <h3 class="project-title">MedicalSoft</h3>
+                                    <span class="tag" data-i18n="projects.tags.fullstack">Fullstack Developer</span>
+                                </div>
+                                <p class="project-desc" data-i18n="projects.p3.desc">Refactorización de arquitectura
+                                    modular. Separación de responsabilidades e implementación de servicios en
+                                    TypeScript.</p>
+                                <div class="project-tech">
+                                    <span>PHP</span><span>TypeScript</span><span>Express</span><span>Modular Auth</span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="slide">
+                            <article class="project-card">
+                                <div class="project-thumb">
+                                    <img alt="Cafecito Global App" src="assets/Cafecito.png" />
+                                </div>
+                                <div class="project-head">
+                                    <h3 class="project-title">Cafecito Global</h3>
+                                    <span class="tag" data-i18n="projects.tags.fullstack">Fullstack Developer</span>
+                                </div>
+                                <p class="project-desc" data-i18n="projects.p4.desc">App web fullstack con React y AWS.
+                                    Configuración de Nginx, Gunicorn y seguridad con JWT para autenticación.</p>
+                                <div class="project-tech">
+                                    <span>React</span><span>AWS</span><span>Nginx</span><span>JWT</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider-dots" id="sliderDots" aria-label="Indicadores del carrusel"></div>
+            </div>
+        </section>
+
+        <section class="section" id="tecnologias">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow reveal" data-i18n="tech.eyebrow">04 · Stack Técnico</span>
+                    <div class="reveal">
+                        <h2 class="h2" data-i18n="tech.title">Tecnologías y Herramientas</h2>
+                        <p class="lead" style="margin-top: 1.1rem;" data-i18n="tech.lead">Mi stack técnico y
+                            herramientas de desarrollo especializado para la creación de soluciones digitales
+                            escalables y eficientes.</p>
+                    </div>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="tech-group reveal">
+                        <h4>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="m8 7-5 5 5 5" />
+                                <path d="m16 7 5 5-5 5" />
+                            </svg>
+                            <span data-i18n="tech.languages">Lenguajes</span>
+                        </h4>
+                        <div class="chips">
+                            <span class="chip">Python</span>
+                            <span class="chip">TypeScript</span>
+                            <span class="chip">JavaScript</span>
+                            <span class="chip">PHP</span>
+                            <span class="chip">SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-group reveal">
+                        <h4>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3" y="4" width="18" height="7" rx="1" />
+                                <rect x="3" y="13" width="18" height="7" rx="1" />
+                                <path d="M7 7.5h.01M7 16.5h.01" />
+                            </svg>
+                            <span data-i18n="tech.backend">Backend</span>
+                        </h4>
+                        <ul class="list-lines">
+                            <li>Django / DRF</li>
+                            <li>Laravel PHP</li>
+                            <li>Express.js</li>
+                            <li>TypeORM</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-group reveal">
+                        <h4>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9" />
+                                <path d="M3 12h18" />
+                                <path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z" />
+                            </svg>
+                            <span data-i18n="tech.frontend">Frontend</span>
+                        </h4>
+                        <div class="chips">
+                            <span class="chip chip-dark">React</span>
+                            <span class="chip">Vite</span>
+                            <span class="chip">HTML5 / CSS3</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-group reveal">
+                        <h4>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <ellipse cx="12" cy="5" rx="8" ry="3" />
+                                <path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" />
+                                <path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />
+                            </svg>
+                            <span data-i18n="tech.databases">Databases</span>
+                        </h4>
+                        <div class="db-grid">
+                            <div class="db-box">MySQL</div>
+                            <div class="db-box">PostgreSQL</div>
+                        </div>
+                    </div>
+
+                    <div class="tech-group reveal">
+                        <h4>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M17.5 19a4.5 4.5 0 1 0-.4-9A6 6 0 0 0 6 11.5 4.5 4.5 0 0 0 7.5 19h10Z" />
+                            </svg>
+                            <span data-i18n="tech.devops">Cloud &amp; DevOps</span>
+                        </h4>
+                        <ul class="list-lines">
+                            <li>AWS (EC2, VPC, S3)</li>
+                            <li>Nginx &amp; Gunicorn</li>
+                            <li>CI/CD Pipelines</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-group reveal">
+                        <h4>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7Z" />
+                            </svg>
+                            <span data-i18n="tech.tools">Herramientas</span>
+                        </h4>
+                        <div class="tools-grid">
+                            <div class="tool">
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <rect x="3" y="4" width="18" height="16" rx="1" />
+                                    <path d="m8 9 3 3-3 3" />
+                                    <path d="M13 15h4" />
+                                </svg>
+                                <span>VS Code</span>
+                            </div>
+                            <div class="tool">
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M6 3v12" />
+                                    <circle cx="18" cy="6" r="3" />
+                                    <circle cx="6" cy="18" r="3" />
+                                    <path d="M18 9a9 9 0 0 1-9 9" />
+                                </svg>
+                                <span>Git / GitHub</span>
+                            </div>
+                            <div class="tool">
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M22 2 11 13" />
+                                    <path d="M22 2 15 22l-4-9-9-4Z" />
+                                </svg>
+                                <span>Postman</span>
+                            </div>
+                            <div class="tool">
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <rect x="4" y="4" width="4" height="16" />
+                                    <rect x="10" y="4" width="4" height="10" />
+                                    <rect x="16" y="4" width="4" height="13" />
+                                </svg>
+                                <span>Jira / Trello</span>
+                            </div>
+                            <div class="tool">
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <rect x="3" y="4" width="18" height="16" rx="1" />
+                                    <path d="m8 9 3 3-3 3" />
+                                    <path d="M13 15h4" />
+                                </svg>
+                                <span>opencode</span>
+                            </div>
+                            <div class="tool">
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 3a3 3 0 0 0-3 3c0 .6.2 1.1.5 1.6A9 9 0 0 0 3 16v2h18v-2a9 9 0 0 0-6.5-8.4c.3-.5.5-1 .5-1.6a3 3 0 0 0-3-3Z" />
+                                    <path d="M12 14v7M8 21h8" />
+                                </svg>
+                                <span>Antigravity</span>
+                            </div>
+                            <div class="tool">
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 2c3 0 4.5 1.5 4.5 4 0 1.4-.5 2.4-1.2 3.1.6 1.6 2.7 2.9 4.7 3.2-.3 3-3 5.7-6 5.7H9l-6 3 1.5-4C2.3 15.5 1 13.5 1 11c0-5 4.5-9 11-9Z" />
+                                </svg>
+                                <span>ChatGPT (Codex)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <div class="footer-hero">
+                <h2 class="reveal" data-i18n="footer.title">Hagamos algo excepcional.</h2>
+                <p class="reveal" data-i18n="footer.desc">Disponible para colaboraciones estratégicas y proyectos de
+                    alto impacto tecnológico.</p>
+                <div class="footer-contact reveal">
+                    <a class="footer-email"
+                        href="mailto:pedrazahoyoscristiandavid@gmail.com">pedrazahoyoscristiandavid@gmail.com</a>
+                    <a class="footer-wa" href="https://wa.me/573005624810" target="_blank" rel="noopener">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 12.5 3 8.5 8.5 0 0 1 21 11.5Z" />
+                        </svg>
+                        WhatsApp: 3005624810
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">© <span id="year">2026</span>&nbsp;Cristian Pedraza</div>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/cristian-pedraza-hoyos-96b830252/" target="_blank"
+                        rel="noopener">LinkedIn</a>
+                    <a href="https://github.com/CrisDev96" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="to-top" id="toTop" aria-label="Volver arriba">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 20V4M6 10l6-6 6 6" />
+        </svg>
+    </button>
+
+    <script>
+        (function () {
+            var translations = {
+                es: {
+                    'nav.about': 'Sobre mí',
+                    'nav.experience': 'Experiencia',
+                    'nav.audio': 'Audio',
+                    'nav.projects': 'Proyectos',
+                    'nav.tech': 'Tecnologías',
+                    'nav.contact': 'Contacto',
+                    'hero.eyebrow': 'Portfolio Profesional',
+                    'hero.role1': 'Fullstack Developer',
+                    'hero.role2': 'Sound Engineer',
+                    'hero.role3': 'AI Specialist',
+                    'hero.desc': 'Fusionando el arte del sonido con la precisión del código y la potencia de la Inteligencia Artificial para crear experiencias digitales únicas.',
+                    'hero.projects': 'Ver Proyectos',
+                    'hero.contact': 'Contacto',
+                    'hero.alt': 'Retrato profesional de Cristian Pedraza',
+                    'stats.dev.title': 'Desarrollo',
+                    'stats.dev.desc': 'Arquitecturas robustas, código limpio y escalable. Especialista en Django, React, Node.js, PHP, TypeScript, HTML5, CSS3 y ecosistemas Cloud.',
+                    'stats.audio.title': 'Audio',
+                    'stats.audio.desc': 'Diseño sonoro y procesamiento de señales, integrando principios de acústica y tecnologías digitales para optimizar la calidad del sonido.',
+                    'stats.ai.title': 'Inteligencia Artificial',
+                    'stats.ai.desc': 'Integración de modelos de Machine Learning, Deep Learning y Reinforcement Learning, incluyendo visión por computador, análisis predictivo y agentes para entornos Atari.',
+                    'about.eyebrow': '01 · Sobre Mí',
+                    'about.title': 'La intersección de disciplinas.',
+                    'about.quote': '«Mi enfoque combina la ingeniería de sonido con la creatividad y el desarrollo web.»',
+                    'about.p1': 'Como Ingeniero de Sonido, aprendí a ser preciso basándome en las matemáticas y la física. Como Desarrollador Fullstack, aprendí a construir herramientas que ayudan a personas del día a día. Hoy, la IA es el puente para conectar ambos mundos y crear nuevas aplicaciones.',
+                    'about.p2': 'He liderado proyectos desde la concepción técnica hasta la implementación de algoritmos complejos, siempre priorizando una experiencia de usuario impecable y una arquitectura escalable y sostenible.',
+                    'audio.eyebrow': '02 · Ingeniería de Sonido',
+                    'audio.title': 'Precisión técnica y arte sonoro.',
+                    'audio.lead': 'Experto en la optimización de entornos acústicos y la producción de audio de alta fidelidad, aplicando principios físicos y matemáticos para lograr la excelencia sonora.',
+                    'audio.f1.title': 'Diseño Acústico',
+                    'audio.f1.desc': 'Creación de diseños acústicos integrales para estudios y espacios profesionales, garantizando una respuesta en frecuencia equilibrada.',
+                    'audio.f2.title': 'Acondicionamiento',
+                    'audio.f2.desc': 'Acondicionamiento y aislamiento acústico avanzado para el control de reflexiones, tiempos de reverberación y transmisión de ruido.',
+                    'audio.f3.title': 'Diseño de Sonido',
+                    'audio.f3.desc': 'Creación de texturas y paisajes sonoros únicos para medios digitales, videojuegos y aplicaciones interactivas.',
+                    'audio.f4.title': 'Post-Producción',
+                    'audio.f4.desc': 'Grabación, edición, mezcla y mastering profesional (Stereo/Surround) con estándares de industria.',
+                    'audio.alt': 'Diseño Acústico Profesional',
+                    'audio.badge': 'Calidad Certificada',
+                    'projects.eyebrow': '03 · Proyectos',
+                    'projects.title': 'Trabajo Desarrollado',
+                    'projects.tags.backend': 'Backend Developer',
+                    'projects.tags.chatbot': 'Chatbot Developer',
+                    'projects.tags.fullstack': 'Fullstack Developer',
+                    'projects.p1.desc': 'Desarrollo y mantenimiento del backend implementando APIs RESTful. Gestión de modelos y optimización de consultas en MySQL y PostgreSQL.',
+                    'projects.p2.desc': 'Integración de chatbots con APIs externas utilizando PHP y la plataforma de CariAI. Procesamiento de solicitudes y manejo de respuestas dinámicas.',
+                    'projects.p3.desc': 'Refactorización de arquitectura modular. Separación de responsabilidades e implementación de servicios en TypeScript.',
+                    'projects.p4.desc': 'App web fullstack con React y AWS. Configuración de Nginx, Gunicorn y seguridad con JWT para autenticación.',
+                    'tech.eyebrow': '04 · Stack Técnico',
+                    'tech.title': 'Tecnologías y Herramientas',
+                    'tech.lead': 'Mi stack técnico y herramientas de desarrollo especializado para la creación de soluciones digitales escalables y eficientes.',
+                    'tech.languages': 'Lenguajes',
+                    'tech.backend': 'Backend',
+                    'tech.frontend': 'Frontend',
+                    'tech.databases': 'Databases',
+                    'tech.devops': 'Cloud & DevOps',
+                    'tech.tools': 'Herramientas',
+                    'footer.title': 'Hagamos algo excepcional.',
+                    'footer.desc': 'Disponible para colaboraciones estratégicas y proyectos de alto impacto tecnológico.',
+                    'a11y.skip': 'Saltar al contenido'
+                },
+                en: {
+                    'nav.about': 'About',
+                    'nav.experience': 'Experience',
+                    'nav.audio': 'Audio',
+                    'nav.projects': 'Projects',
+                    'nav.tech': 'Technologies',
+                    'nav.contact': 'Contact',
+                    'hero.eyebrow': 'Professional Portfolio',
+                    'hero.role1': 'Fullstack Developer',
+                    'hero.role2': 'Sound Engineer',
+                    'hero.role3': 'AI Specialist',
+                    'hero.desc': 'Fusing the art of sound with the precision of code and the power of Artificial Intelligence to create unique digital experiences.',
+                    'hero.projects': 'View Projects',
+                    'hero.contact': 'Contact',
+                    'hero.alt': 'Professional portrait of Cristian Pedraza',
+                    'stats.dev.title': 'Development',
+                    'stats.dev.desc': 'Robust architectures, clean and scalable code. Specialist in Django, React, Node.js, PHP, TypeScript, HTML5, CSS3 and Cloud ecosystems.',
+                    'stats.audio.title': 'Audio',
+                    'stats.audio.desc': 'Sound design and signal processing, integrating acoustics principles and digital technologies to optimize sound quality.',
+                    'stats.ai.title': 'Artificial Intelligence',
+                    'stats.ai.desc': 'Integration of Machine Learning, Deep Learning and Reinforcement Learning models, including computer vision, predictive analysis and agents for Atari environments.',
+                    'about.eyebrow': '01 · About Me',
+                    'about.title': 'The intersection of disciplines.',
+                    'about.quote': '“My approach combines sound engineering with creativity and web development.”',
+                    'about.p1': 'As a Sound Engineer, I learned to be precise based on math and physics. As a Fullstack Developer, I learned to build tools that help people in their daily lives. Today, AI is the bridge to connect both worlds and create new applications.',
+                    'about.p2': 'I have led projects from technical conception to the implementation of complex algorithms, always prioritizing an impeccable user experience and a scalable, sustainable architecture.',
+                    'audio.eyebrow': '02 · Sound Engineering',
+                    'audio.title': 'Technical precision and sound art.',
+                    'audio.lead': 'Expert in optimizing acoustic environments and producing high-fidelity audio, applying physical and mathematical principles to achieve sonic excellence.',
+                    'audio.f1.title': 'Acoustic Design',
+                    'audio.f1.desc': 'Creating comprehensive acoustic designs for studios and professional spaces, ensuring a balanced frequency response.',
+                    'audio.f2.title': 'Conditioning',
+                    'audio.f2.desc': 'Advanced acoustic conditioning and insulation to control reflections, reverberation times and noise transmission.',
+                    'audio.f3.title': 'Sound Design',
+                    'audio.f3.desc': 'Creating unique sound textures and landscapes for digital media, video games and interactive applications.',
+                    'audio.f4.title': 'Post-Production',
+                    'audio.f4.desc': 'Professional recording, editing, mixing and mastering (Stereo/Surround) with industry standards.',
+                    'audio.alt': 'Professional Acoustic Design',
+                    'audio.badge': 'Certified Quality',
+                    'projects.eyebrow': '03 · Projects',
+                    'projects.title': 'Developed Work',
+                    'projects.tags.backend': 'Backend Developer',
+                    'projects.tags.chatbot': 'Chatbot Developer',
+                    'projects.tags.fullstack': 'Fullstack Developer',
+                    'projects.p1.desc': 'Backend development and maintenance implementing RESTful APIs. Model management and query optimization in MySQL and PostgreSQL.',
+                    'projects.p2.desc': 'Integration of chatbots with external APIs using PHP and the CariAI platform. Request processing and dynamic response handling.',
+                    'projects.p3.desc': 'Modular architecture refactoring. Separation of responsibilities and implementation of services in TypeScript.',
+                    'projects.p4.desc': 'Fullstack web app with React and AWS. Nginx and Gunicorn configuration and JWT security for authentication.',
+                    'tech.eyebrow': '04 · Tech Stack',
+                    'tech.title': 'Technologies & Tools',
+                    'tech.lead': 'My technical stack and specialized development tools for creating scalable and efficient digital solutions.',
+                    'tech.languages': 'Languages',
+                    'tech.backend': 'Backend',
+                    'tech.frontend': 'Frontend',
+                    'tech.databases': 'Databases',
+                    'tech.devops': 'Cloud & DevOps',
+                    'tech.tools': 'Tools',
+                    'footer.title': 'Let\'s build something exceptional.',
+                    'footer.desc': 'Available for strategic collaborations and high-impact technology projects.',
+                    'a11y.skip': 'Skip to content'
+                }
+            };
+
+            var header = document.getElementById('header');
+            var menuBtn = document.getElementById('menuBtn');
+            var slider = document.getElementById('slider');
+            var prevBtn = document.getElementById('prevBtn');
+            var nextBtn = document.getElementById('nextBtn');
+            var dotsWrap = document.getElementById('sliderDots');
+            var toTop = document.getElementById('toTop');
+            var slideCount = slider.querySelectorAll('.slide').length;
+
+            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            var langBtn = document.getElementById('langBtn');
+            var currentLang = 'es';
+            try {
+                currentLang = localStorage.getItem('portfolio-lang') || 'es';
+            } catch (e) { /* sin almacenamiento */ }
+            if (currentLang !== 'es' && currentLang !== 'en') currentLang = 'es';
+
+            var applyLang = function (lang) {
+                currentLang = lang;
+                var dict = translations[lang];
+                document.documentElement.setAttribute('lang', lang);
+                document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                    var key = el.getAttribute('data-i18n');
+                    if (dict[key]) el.textContent = dict[key];
+                });
+                document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+                    var key = el.getAttribute('data-i18n-alt');
+                    if (dict[key]) el.setAttribute('alt', dict[key]);
+                });
+                langBtn.textContent = lang === 'es' ? 'EN' : 'ES';
+                langBtn.setAttribute('aria-label', lang === 'es' ? 'Cambiar idioma a inglés' : 'Switch language to Spanish');
+                try {
+                    localStorage.setItem('portfolio-lang', lang);
+                } catch (e) { /* sin almacenamiento */ }
+            };
+
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            applyLang(currentLang);
+
+            langBtn.addEventListener('click', function () {
+                applyLang(currentLang === 'es' ? 'en' : 'es');
+            });
+
+            var onScroll = function () {
+                header.classList.toggle('scrolled', window.scrollY > 10);
+                toTop.classList.toggle('visible', window.scrollY > 600);
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            menuBtn.addEventListener('click', function () {
+                var open = header.classList.toggle('menu-open');
+                menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                menuBtn.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+            });
+
+            header.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    header.classList.remove('menu-open');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            for (var i = 0; i < slideCount; i++) {
+                var dot = document.createElement('button');
+                dot.className = 'dot';
+                dot.setAttribute('aria-label', 'Ir al proyecto ' + (i + 1));
+                dot.addEventListener('click', function (index) {
+                    return function () {
+                        slider.scrollTo({ left: slider.children[index].offsetLeft, behavior: 'smooth' });
+                    };
+                }(i));
+                dotsWrap.appendChild(dot);
+            }
+
+            var dots = dotsWrap.children;
+            var activeDot = 0;
+
+            var moveBy = function () {
+                return slider.children[0].getBoundingClientRect().width + 25.6;
+            };
+
+            var updateDots = function () {
+                var perView = Math.max(1, Math.round(slider.clientWidth / (slider.children[0].offsetWidth + 25.6)));
+                var maxIndex = Math.max(0, slideCount - perView);
+                var idx = Math.min(Math.round(slider.scrollLeft / moveBy()), maxIndex);
+                activeDot = Math.max(0, idx);
+                for (var i = 0; i < dots.length; i++) {
+                    dots[i].classList.toggle('active', i === activeDot);
+                }
+            };
+
+            var scrollToIndex = function (index) {
+                index = Math.max(0, Math.min(slideCount - 1, index));
+                slider.scrollTo({ left: slider.children[index].offsetLeft - 0, behavior: 'smooth' });
+            };
+
+            prevBtn.addEventListener('click', function () { scrollToIndex(activeDot - 1); });
+            nextBtn.addEventListener('click', function () { scrollToIndex(activeDot + 1); });
+
+            slider.addEventListener('scroll', updateDots, { passive: true });
+
+            var autoplay = null;
+            var startAutoplay = function () {
+                if (prefersReduced) return;
+                autoplay = setInterval(function () {
+                    var maxScroll = slider.scrollWidth - slider.clientWidth;
+                    if (slider.scrollLeft >= maxScroll - 1) {
+                        slider.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        slider.scrollBy({ left: moveBy(), behavior: 'smooth' });
+                    }
+                }, 3500);
+            };
+            var stopAutoplay = function () {
+                if (autoplay) { clearInterval(autoplay); autoplay = null; }
+            };
+
+            slider.addEventListener('mouseenter', stopAutoplay);
+            slider.addEventListener('mouseleave', startAutoplay);
+            slider.addEventListener('focusin', stopAutoplay);
+            slider.addEventListener('focusout', function () {
+                if (header.classList.contains('menu-open')) return;
+                if (!prefersReduced && document.activeElement && slider.contains(document.activeElement)) return;
+                startAutoplay();
+            });
+            slider.addEventListener('touchstart', stopAutoplay, { passive: true });
+            slider.addEventListener('touchend', startAutoplay);
+
+            window.addEventListener('resize', updateDots);
+
+            updateDots();
+
+            window.setTimeout(startAutoplay, 1200);
+
+            toTop.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+            });
+
+            var revealEls = document.querySelectorAll('.reveal');
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            revealEls.forEach(function (el) { io.observe(el); });
+
+            var sections = document.querySelectorAll('main section[id]');
+            var navLinks = document.querySelectorAll('.nav a');
+            var spy = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(function (link) {
+                            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+                        });
+                    }
+                });
+            }, { rootMargin: '-40% 0px -55% 0px' });
+            sections.forEach(function (section) { spy.observe(section); });
+        })();
+    </script>
 </body>
 
 </html>
