@@ -4,11 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Cristian Pedraza — Fullstack Developer · Sound Engineer · AI Specialist</title>
+    <title>IA, Automatización y Desarrollo Web | Cristian Pedraza</title>
     <meta name="description"
-        content="Portafolio profesional de Cristian Pedraza. Fullstack Developer, Sound Engineer y AI Specialist." />
+        content="Desarrollo soluciones de IA, automatización, aplicaciones web y sistemas digitales para ayudar a empresas a optimizar procesos y gestionar mejor sus oportunidades comerciales." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
         :root {
             --bg: #f5f4f1;
@@ -131,14 +134,13 @@
         }
 
         .h1 {
-            font-size: clamp(3rem, 9vw, 6.5rem);
-            text-transform: uppercase;
-            line-height: 0.95;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            line-height: 1.0;
         }
 
         .h2 {
-            font-size: clamp(2rem, 5vw, 3.25rem);
-            margin-top: 1.1rem;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            margin-top: 1rem;
         }
 
         .lead {
@@ -170,12 +172,11 @@
         }
 
         .btn-primary {
-            background: var(--ink);
+            background: var(--accent);
             color: #fff;
         }
 
         .btn-primary:hover {
-            background: var(--accent);
             transform: translateY(-2px);
             box-shadow: 0 14px 28px -12px rgba(234, 88, 12, 0.55);
         }
@@ -200,6 +201,17 @@
             background: var(--accent);
             color: #fff;
             transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            color: #fff;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
         }
 
         .header {
@@ -368,7 +380,7 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
+            grid-template-columns: 1fr 0.9fr;
             gap: clamp(2rem, 6vw, 5rem);
             align-items: center;
         }
@@ -380,70 +392,39 @@
             align-items: flex-start;
         }
 
-        .hero-role {
+        .hero-roles {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            gap: 0.9rem;
-            border-left: 3px solid var(--accent);
-            padding-left: 1.1rem;
+            gap: 0.5rem;
         }
 
-        .hero-role span {
-            font-size: 1.05rem;
+        .hero-role-tag {
+            padding: 0.4rem 0.9rem;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 99px;
+            font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            letter-spacing: 0.06em;
+            color: var(--ink-soft);
         }
 
-        .hero-role i {
-            font-style: normal;
-            color: var(--muted);
+        .hero-role-tag.highlight {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
         }
 
         .hero-desc {
             color: var(--ink-soft);
             font-size: 1.05rem;
-            max-width: 44ch;
+            max-width: 50ch;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-        }
-
-        .socials {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .social {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.65rem;
-            padding: 0.6rem 1.1rem;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-            transition: all 0.2s ease;
-        }
-
-        .social svg {
-            width: 1.1rem;
-            height: 1.1rem;
-            fill: currentColor;
-        }
-
-        .social:hover {
-            border-color: var(--ink);
-            color: var(--ink);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
         }
 
         .hero-visual {
@@ -492,48 +473,17 @@
             animation: wave 1.4s ease-in-out infinite alternate;
         }
 
-        .waveform i:nth-child(1) {
-            height: 35%;
-            animation-delay: 0s;
-        }
-
-        .waveform i:nth-child(2) {
-            height: 60%;
-            animation-delay: 0.15s;
-        }
-
-        .waveform i:nth-child(3) {
-            height: 90%;
-            animation-delay: 0.3s;
-        }
-
-        .waveform i:nth-child(4) {
-            height: 100%;
-            animation-delay: 0.45s;
-        }
-
-        .waveform i:nth-child(5) {
-            height: 75%;
-            animation-delay: 0.6s;
-        }
-
-        .waveform i:nth-child(6) {
-            height: 55%;
-            animation-delay: 0.75s;
-        }
-
-        .waveform i:nth-child(7) {
-            height: 40%;
-            animation-delay: 0.9s;
-        }
+        .waveform i:nth-child(1) { height: 35%; animation-delay: 0s; }
+        .waveform i:nth-child(2) { height: 60%; animation-delay: 0.15s; }
+        .waveform i:nth-child(3) { height: 90%; animation-delay: 0.3s; }
+        .waveform i:nth-child(4) { height: 100%; animation-delay: 0.45s; }
+        .waveform i:nth-child(5) { height: 75%; animation-delay: 0.6s; }
+        .waveform i:nth-child(6) { height: 55%; animation-delay: 0.75s; }
+        .waveform i:nth-child(7) { height: 40%; animation-delay: 0.9s; }
 
         @keyframes wave {
-            from {
-                transform: scaleY(0.55);
-            }
-            to {
-                transform: scaleY(1);
-            }
+            from { transform: scaleY(0.55); }
+            to { transform: scaleY(1); }
         }
 
         .hero-corner {
@@ -548,53 +498,6 @@
             z-index: -1;
         }
 
-        .stats {
-            background: var(--dark);
-            color: #fff;
-            padding: clamp(3.5rem, 7vw, 5.5rem) 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-        }
-
-        .stat {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            padding: 2rem;
-            background: var(--dark-soft);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--radius);
-            transition: transform 0.25s ease, border-color 0.25s ease;
-        }
-
-        .stat:hover {
-            transform: translateY(-6px);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .stat .icon {
-            width: 1.9rem;
-            height: 1.9rem;
-            color: var(--accent);
-            stroke-width: 1.6;
-        }
-
-        .stat h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-
-        .stat p {
-            color: rgba(255, 255, 255, 0.62);
-            font-size: 0.94rem;
-        }
-
         .section {
             padding: clamp(4rem, 8vw, 7rem) 0;
         }
@@ -604,24 +507,370 @@
         }
 
         .section-head .lead {
-            margin-top: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            padding: 2.5rem 2rem;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+        }
+
+        .service-icon {
+            width: 3rem;
+            height: 3rem;
+            display: grid;
+            place-items: center;
+            background: var(--dark);
+            color: var(--accent);
+            border-radius: var(--radius);
+        }
+
+        .service-icon .icon {
+            width: 1.6rem;
+            height: 1.6rem;
+            stroke-width: 1.6;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .service-card > p {
+            color: var(--ink-soft);
+            font-size: 0.94rem;
+            line-height: 1.7;
+        }
+
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .service-list span {
+            padding: 0.35rem 0.75rem;
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: 99px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--ink-soft);
+        }
+
+        .service-card .btn {
+            margin-top: auto;
+            padding: 0.75rem 1.3rem;
+        }
+
+        .auto-bg {
+            background: var(--dark);
+            color: #fff;
+        }
+
+        .auto-bg .h2,
+        .auto-bg .lead {
+            color: #fff;
+        }
+
+        .auto-bg .lead {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .auto-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .auto-card {
+            padding: 1.8rem 1.5rem;
+            background: var(--dark-soft);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .auto-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .auto-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .flow-step {
+            padding: 0.3rem 0.65rem;
+            background: rgba(234, 88, 12, 0.15);
+            border-radius: 4px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: rgba(255, 255, 255, 0.85);
+            white-space: nowrap;
+        }
+
+        .flow-arrow {
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            padding: 1.4rem;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+        }
+
+        .project-card.featured {
+            border-color: var(--accent);
+        }
+
+        .project-thumb {
+            overflow: hidden;
+            border-radius: calc(var(--radius) - 2px);
+            aspect-ratio: 16 / 10;
+            background: #000;
+        }
+
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-thumb img {
+            transform: scale(1.06);
+        }
+
+        .project-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.7rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .tag-dark {
+            background: var(--dark);
+            color: #fff;
+        }
+
+        .tag-accent {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .project-meta-item {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .project-meta-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            min-width: 60px;
+            flex-shrink: 0;
+        }
+
+        .project-meta-text {
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .project-tech span {
+            padding: 0.25rem 0.6rem;
+            background: var(--bg);
+            border-radius: 4px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.6rem;
+        }
+
+        .demo-card {
+            padding: 2.5rem 2rem;
+            background: var(--bg);
+            border: 2px dashed var(--line);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            text-align: center;
+            min-height: 200px;
+            transition: border-color 0.25s ease;
+        }
+
+        .demo-card:hover {
+            border-color: var(--accent);
+        }
+
+        .demo-card .icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            color: var(--muted);
+        }
+
+        .demo-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ink-soft);
+        }
+
+        .demo-card p {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .demo-badge {
+            display: inline-flex;
+            padding: 0.3rem 0.8rem;
+            background: var(--dark);
+            color: #fff;
+            border-radius: 99px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 24px;
+            left: calc(100%);
+            width: 1.5rem;
+            height: 2px;
+            background: var(--line);
+        }
+
+        .step-num {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            background: var(--dark);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 800;
+            border-radius: var(--radius);
+        }
+
+        .step h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .step p {
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+            line-height: 1.6;
         }
 
         .about-grid {
             display: grid;
             grid-template-columns: 0.8fr 1.2fr;
             gap: clamp(2rem, 5vw, 4rem);
-        }
-
-        .quote {
-            font-size: clamp(1.25rem, 2.6vw, 1.7rem);
-            font-weight: 600;
-            line-height: 1.35;
-            border-left: 3px solid var(--accent);
-            padding-left: 1.3rem;
-            margin-bottom: 2rem;
-            letter-spacing: -0.01em;
-            color: var(--ink);
         }
 
         .about-cols {
@@ -707,31 +956,6 @@
             transform: scale(1.03);
         }
 
-        .audio-badge {
-            position: absolute;
-            left: -0.9rem;
-            bottom: 1.25rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--ink);
-            color: #fff;
-            padding: 0.6rem 1.1rem;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .audio-badge .icon {
-            width: 1rem;
-            height: 1rem;
-            color: var(--accent);
-            stroke-width: 2.4;
-        }
-
         .audio-corner {
             position: absolute;
             top: -1.1rem;
@@ -742,186 +966,6 @@
             border-right: 2px solid var(--accent);
             border-radius: 0 var(--radius) 0 0;
             z-index: -1;
-        }
-
-        .projects {
-            background: var(--dark);
-            color: #fff;
-        }
-
-        .projects .h2,
-        .projects .lead {
-            color: #fff;
-        }
-
-        .projects .lead {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .slider-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-            margin-top: 1.2rem;
-        }
-
-        .slider-nav {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .slider-btn {
-            display: grid;
-            place-items: center;
-            width: 46px;
-            height: 46px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            background: transparent;
-            color: #fff;
-            border-radius: var(--radius);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .slider-btn:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .slider-btn .icon {
-            width: 1.2rem;
-            height: 1.2rem;
-        }
-
-        .slider-wrap {
-            position: relative;
-        }
-
-        .slider {
-            display: flex;
-            gap: 1.6rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            padding-bottom: 0.75rem;
-        }
-
-        .slider::-webkit-scrollbar {
-            display: none;
-        }
-
-        .slide {
-            flex: 0 0 min(560px, 88%);
-            scroll-snap-align: center;
-        }
-
-        .project-card {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            padding: 1.4rem;
-            background: var(--dark-soft);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            height: 100%;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent);
-        }
-
-        .project-thumb {
-            overflow: hidden;
-            border-radius: calc(var(--radius) - 2px);
-            aspect-ratio: 16 / 10;
-            background: #000;
-        }
-
-        .project-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .project-card:hover .project-thumb img {
-            transform: scale(1.06);
-        }
-
-        .project-head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .project-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-        }
-
-        .tag {
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            background: #fff;
-            color: var(--dark);
-            padding: 0.35rem 0.7rem;
-            border-radius: 4px;
-            white-space: nowrap;
-        }
-
-        .project-desc {
-            color: rgba(255, 255, 255, 0.68);
-            font-size: 0.94rem;
-            line-height: 1.7;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.45);
-            margin-top: auto;
-        }
-
-        .project-tech span:not(:first-child)::before {
-            content: "·";
-            margin-right: 0.45rem;
-            color: var(--accent);
-        }
-
-        .slider-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1.6rem;
-        }
-
-        .dot {
-            width: 34px;
-            height: 4px;
-            border: none;
-            border-radius: 99px;
-            background: rgba(255, 255, 255, 0.2);
-            cursor: pointer;
-            transition: background 0.25s ease;
-        }
-
-        .dot.active {
-            background: var(--accent);
         }
 
         .tech-grid {
@@ -998,63 +1042,139 @@
             padding-left: 1rem;
         }
 
-        .db-grid,
-        .tools-grid {
+        .marketing-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
-        .db-box {
-            text-align: center;
-            padding: 1rem 0.75rem;
+        .marketing-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
             background: var(--surface);
             border: 1px solid var(--line);
             border-radius: var(--radius);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
             transition: all 0.2s ease;
         }
 
-        .db-box:hover {
+        .marketing-item:hover {
             border-color: var(--accent);
-            color: var(--accent);
             transform: translateY(-2px);
         }
 
-        .tool {
+        .marketing-item .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--accent);
+            stroke-width: 2;
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+        }
+
+        .marketing-item span {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--ink-soft);
+        }
+
+        .contact-form {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        .form-group {
             display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            padding: 0.8rem 0.9rem;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            transition: all 0.2s ease;
+            flex-direction: column;
+            gap: 0.4rem;
         }
 
-        .tool .icon {
-            width: 1.15rem;
-            height: 1.15rem;
-            color: var(--muted);
+        .form-group.full {
+            grid-column: 1 / -1;
         }
 
-        .tool span {
-            font-size: 0.68rem;
+        .form-group label {
+            font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
+            color: var(--ink-soft);
         }
 
-        .tool:hover {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.8rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--ink);
+            transition: border-color 0.2s ease;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
             border-color: var(--accent);
-            transform: translateY(-2px);
         }
 
-        .tool:hover .icon {
-            color: var(--accent);
+        .form-group textarea {
+            min-height: 120px;
+        }
+
+        .form-submit {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .form-error {
+            font-size: 0.8rem;
+            color: #dc2626;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .form-error.show {
+            display: block;
+        }
+
+        .form-message {
+            text-align: center;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .form-message.show {
+            display: block;
+        }
+
+        .form-message.success {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        .form-message.error {
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
         }
 
         .footer {
@@ -1123,6 +1243,37 @@
 
         .footer-wa:hover {
             color: var(--accent);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            transition: all 0.2s ease;
+        }
+
+        .footer-social svg {
+            width: 1rem;
+            height: 1rem;
+            fill: currentColor;
+        }
+
+        .footer-social:hover {
+            border-color: var(--accent);
+            color: #fff;
         }
 
         .footer-bottom {
@@ -1265,8 +1416,7 @@
                 margin-top: 1rem;
             }
 
-            .hero-grid,
-            .audio-grid {
+            .hero-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1274,21 +1424,53 @@
                 max-width: 460px;
             }
 
-            .audio-visual {
-                max-width: 460px;
-                order: -1;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
-            .stats-grid {
+            .auto-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step:not(:last-child)::after {
+                display: none;
             }
 
             .about-grid {
                 grid-template-columns: 1fr;
             }
 
+            .audio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .audio-visual {
+                max-width: 460px;
+                order: -1;
+            }
+
             .tech-grid {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .marketing-list {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
             }
         }
 
@@ -1304,9 +1486,7 @@
 
             .features,
             .about-cols,
-            .tech-grid,
-            .db-grid,
-            .tools-grid {
+            .tech-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1314,13 +1494,8 @@
                 width: 100%;
             }
 
-            .slider-bar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .slide {
-                flex-basis: 92%;
+            .service-card .btn {
+                width: 100%;
             }
         }
 
@@ -1367,25 +1542,26 @@
 
             <div class="menu-wrap" id="menuWrap">
                 <nav class="nav" aria-label="Navegación principal">
-                    <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
-                    <a href="#experiencia" data-i18n="nav.experience">Experiencia</a>
-                    <a href="#audio" data-i18n="nav.audio">Audio</a>
+                    <a href="#servicios" data-i18n="nav.services">Servicios</a>
                     <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+                    <a href="#como-trabajo" data-i18n="nav.how">Cómo trabajo</a>
+                    <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
                     <a href="#tecnologias" data-i18n="nav.tech">Tecnologías</a>
+                    <a href="#audio" data-i18n="nav.audio">Audio</a>
                 </nav>
                 <a class="btn btn-primary" href="#contacto">
                     <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M22 2 11 13" />
                         <path d="M22 2 15 22l-4-9-9-4Z" />
                     </svg>
-                    <span data-i18n="nav.contact">Contacto</span>
+                    <span data-i18n="nav.cta">Solicitar diagnóstico</span>
                 </a>
             </div>
         </div>
     </header>
 
     <main id="main">
-        <section class="hero" id="sobre-mi">
+        <section class="hero" id="inicio">
             <div class="bg-pattern" aria-hidden="true">
                 <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="400" cy="400" fill="none" r="300" stroke="currentColor" stroke-width="1"></circle>
@@ -1401,49 +1577,30 @@
 
             <div class="container hero-grid">
                 <div class="hero-content">
-                    <span class="eyebrow reveal" data-i18n="hero.eyebrow">Portfolio Profesional</span>
-                    <h1 class="h1 reveal">Cristian<br />Pedraza</h1>
-
-                    <div class="hero-role reveal">
-                        <span data-i18n="hero.role1">Fullstack Developer</span>
-                        <i>·</i>
-                        <span data-i18n="hero.role2">Sound Engineer</span>
-                        <i>·</i>
-                        <span data-i18n="hero.role3">AI Specialist</span>
-                    </div>
+                    <span class="eyebrow reveal" data-i18n="hero.eyebrow">Consultoría Tecnológica</span>
+                    <h1 class="h1 reveal" data-i18n="hero.title">IA, Automatización y Desarrollo Web</h1>
 
                     <p class="hero-desc reveal" data-i18n="hero.desc">
-                        Fusionando el arte del sonido con la precisión del código y la potencia de la Inteligencia
-                        Artificial para crear experiencias digitales únicas.
+                        Construyo soluciones digitales que ayudan a empresas a captar clientes, automatizar procesos y mejorar su operación mediante Inteligencia Artificial, desarrollo web y marketing digital.
                     </p>
 
-                    <div class="hero-actions reveal">
-                        <a class="btn btn-primary" href="#proyectos">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="m8 7-5 5 5 5" />
-                                <path d="m16 7 5 5-5 5" />
-                            </svg>
-                            <span data-i18n="hero.projects">Ver Proyectos</span>
-                        </a>
-                        <a class="btn btn-outline" href="#contacto" data-i18n="hero.contact">Contacto</a>
+                    <div class="hero-roles reveal">
+                        <span class="hero-role-tag highlight">IA</span>
+                        <span class="hero-role-tag highlight" data-i18n="hero.role2">Automatización</span>
+                        <span class="hero-role-tag" data-i18n="hero.role3">Desarrollo Web</span>
+                        <span class="hero-role-tag" data-i18n="hero.role4">Backend</span>
+                        <span class="hero-role-tag" data-i18n="hero.role5">Marketing Digital</span>
                     </div>
 
-                    <div class="socials reveal">
-                        <a class="social" href="https://www.linkedin.com/in/cristian-pedraza-hoyos-96b830252/"
-                            target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    <div class="hero-actions reveal">
+                        <a class="btn btn-primary" href="#contacto">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M22 2 11 13" />
+                                <path d="M22 2 15 22l-4-9-9-4Z" />
                             </svg>
-                            LinkedIn
+                            <span data-i18n="hero.cta1">Solicitar diagnóstico</span>
                         </a>
-                        <a class="social" href="https://github.com/CrisDev96" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            GitHub
-                        </a>
+                        <a class="btn btn-outline" href="#proyectos" data-i18n="hero.cta2">Ver proyectos</a>
                     </div>
                 </div>
 
@@ -1460,60 +1617,376 @@
             </div>
         </section>
 
-        <section class="stats" aria-label="Áreas de especialización">
-            <div class="container stats-grid">
-                <article class="stat reveal">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="m8 7-5 5 5 5" />
-                        <path d="m16 7 5 5-5 5" />
-                    </svg>
-                    <h3 data-i18n="stats.dev.title">Desarrollo</h3>
-                    <p data-i18n="stats.dev.desc">Arquitecturas robustas, código limpio y escalable. Especialista en
-                        Django, React, Node.js, PHP, TypeScript, HTML5, CSS3 y ecosistemas Cloud.</p>
-                </article>
+        <section class="section" id="servicios">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow reveal" data-i18n="services.eyebrow">Servicios</span>
+                    <div class="reveal">
+                        <h2 class="h2" data-i18n="services.title">¿Qué puedo hacer por tu empresa?</h2>
+                        <p class="lead" data-i18n="services.lead">Soluciones de tecnología que conectan marketing, ventas y operaciones para reducir trabajo manual y mejorar la gestión de clientes.</p>
+                    </div>
+                </div>
 
-                <article class="stat reveal">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M2 12h1l2-7 3 14 3-18 3 16 2-5 1 0" />
-                    </svg>
-                    <h3 data-i18n="stats.audio.title">Audio</h3>
-                    <p data-i18n="stats.audio.desc">Diseño sonoro y procesamiento de señales, integrando principios de
-                        acústica y tecnologías digitales para optimizar la calidad del sonido.</p>
-                </article>
+                <div class="services-grid">
+                    <article class="service-card reveal">
+                        <div class="service-icon">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="3" />
+                                <path d="M12 5v14M5 12h14" />
+                                <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(45 12 12)" />
+                            </svg>
+                        </div>
+                        <h3 data-i18n="services.s1.title">IA & Automatización</h3>
+                        <p data-i18n="services.s1.desc">Diseño e implemento soluciones de Inteligencia Artificial y automatización para reducir tareas repetitivas, procesar información y mejorar procesos empresariales.</p>
+                        <div class="service-list">
+                            <span data-i18n="services.s1.u1">Agentes de IA</span>
+                            <span data-i18n="services.s1.u2">Automatización de procesos</span>
+                            <span data-i18n="services.s1.u3">Clasificación de leads</span>
+                            <span data-i18n="services.s1.u4">Procesamiento de documentos</span>
+                            <span data-i18n="services.s1.u5">Integración de APIs</span>
+                            <span data-i18n="services.s1.u6">Flujos de seguimiento</span>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" data-i18n="services.s1.cta">Quiero automatizar un proceso</a>
+                    </article>
 
-                <article class="stat reveal">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="12" cy="12" r="3" />
-                        <path d="M12 5v14M5 12h14" />
-                        <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(45 12 12)" />
-                    </svg>
-                    <h3 data-i18n="stats.ai.title">Inteligencia Artificial</h3>
-                    <p data-i18n="stats.ai.desc">Integración de modelos de Machine Learning, Deep Learning y
-                        Reinforcement Learning, incluyendo visión por computador, análisis predictivo y agentes para
-                        entornos Atari.</p>
-                </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="m8 7-5 5 5 5" />
+                                <path d="m16 7 5 5-5 5" />
+                            </svg>
+                        </div>
+                        <h3 data-i18n="services.s2.title">Desarrollo Web & Sistemas</h3>
+                        <p data-i18n="services.s2.desc">Desarrollo aplicaciones web, dashboards, sistemas internos, APIs e integraciones adaptadas a las necesidades de cada negocio.</p>
+                        <div class="service-list">
+                            <span>Landing pages</span>
+                            <span data-i18n="services.s2.u2">Sitios corporativos</span>
+                            <span data-i18n="services.s2.u3">Aplicaciones web</span>
+                            <span>Dashboards</span>
+                            <span data-i18n="services.s2.u5">Sistemas administrativos</span>
+                            <span>APIs</span>
+                            <span>Backend</span>
+                            <span data-i18n="services.s2.u8">Integraciones</span>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" data-i18n="services.s2.cta">Necesito una solución web</a>
+                    </article>
+
+                    <article class="service-card reveal">
+                        <div class="service-icon">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M22 2 11 13" />
+                                <path d="M22 2 15 22l-4-9-9-4Z" />
+                            </svg>
+                        </div>
+                        <h3 data-i18n="services.s3.title">Marketing & Adquisición</h3>
+                        <p data-i18n="services.s3.desc">Creo sistemas digitales orientados a captar oportunidades comerciales y conectar marketing, ventas y seguimiento.</p>
+                        <div class="service-list">
+                            <span data-i18n="services.s3.u1">Landing pages de conversión</span>
+                            <span data-i18n="services.s3.u2">Generación de leads</span>
+                            <span data-i18n="services.s3.u3">Embudos comerciales</span>
+                            <span data-i18n="services.s3.u4">Automatización de seguimiento</span>
+                            <span data-i18n="services.s3.u5">Integración con CRM</span>
+                            <span data-i18n="services.s3.u6">Analítica</span>
+                        </div>
+                        <a class="btn btn-primary" href="#contacto" data-i18n="services.s3.cta">Quiero mejorar mi captación</a>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section class="section" id="experiencia">
+        <section class="section auto-bg" id="automatizar">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow reveal" style="color: rgba(255,255,255,0.5);" data-i18n="auto.eyebrow">Automatización</span>
+                    <div class="reveal">
+                        <h2 class="h2" data-i18n="auto.title">Convierte procesos manuales en sistemas automatizados</h2>
+                        <p class="lead" data-i18n="auto.lead">Ejemplos de cómo la IA y la automatización pueden transformar la operación de tu empresa.</p>
+                    </div>
+                </div>
+
+                <div class="auto-grid">
+                    <div class="auto-card reveal">
+                        <h4 data-i18n="auto.c1.title">Captación de clientes</h4>
+                        <div class="flow">
+                            <span class="flow-step">Formulario</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">IA</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c1.s3">Clasificación</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">CRM</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c1.s5">Notificación</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c1.s6">Seguimiento</span>
+                        </div>
+                    </div>
+
+                    <div class="auto-card reveal">
+                        <h4 data-i18n="auto.c2.title">Documentos</h4>
+                        <div class="flow">
+                            <span class="flow-step">PDF</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c2.s2">Extracción</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">IA</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c2.s4">Info estructurada</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c2.s5">Base de datos</span>
+                        </div>
+                    </div>
+
+                    <div class="auto-card reveal">
+                        <h4 data-i18n="auto.c3.title">Ventas</h4>
+                        <div class="flow">
+                            <span class="flow-step">Lead</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c3.s2">Registro</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c3.s3">Seguimiento</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c3.s4">Recordatorio</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c3.s5">Reporte</span>
+                        </div>
+                    </div>
+
+                    <div class="auto-card reveal">
+                        <h4 data-i18n="auto.c4.title">Operaciones</h4>
+                        <div class="flow">
+                            <span class="flow-step" data-i18n="auto.c4.s1">Formulario</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c4.s2">Procesamiento</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c4.s3">Automatización</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c4.s4">Resultado</span>
+                        </div>
+                    </div>
+
+                    <div class="auto-card reveal">
+                        <h4 data-i18n="auto.c5.title">Atención al cliente</h4>
+                        <div class="flow">
+                            <span class="flow-step" data-i18n="auto.c5.s1">Cliente</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c5.s2">Asistente IA</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c5.s3">Información</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c5.s4">Derivación</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" data-i18n="auto.c5.s5">Registro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="proyectos">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow reveal" data-i18n="projects.eyebrow">Proyectos</span>
+                    <div class="reveal">
+                        <h2 class="h2" data-i18n="projects.title">Casos de estudio</h2>
+                        <p class="lead" data-i18n="projects.lead">Proyectos reales que demuestran capacidad técnica y orientación a resultados de negocio.</p>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card featured reveal">
+                        <div class="project-thumb">
+                            <img alt="CariAI - Integración de IA y automatización conversacional" src="assets/CariAI.png" />
+                        </div>
+                        <div class="project-head">
+                            <h3 class="project-title">CariAI</h3>
+                            <span class="tag tag-accent" data-i18n="projects.tags.ai">IA & Automatización</span>
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <span class="project-meta-label" data-i18n="projects.meta.context">Contexto</span>
+                                <span class="project-meta-text" data-i18n="projects.p2.context">Necesidad de automatizar la interacción con clientes mediante un chatbot inteligente capaz de procesar solicitudes y dar respuestas dinámicas.</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <span class="project-meta-label" data-i18n="projects.meta.solution">Solución</span>
+                                <span class="project-meta-text" data-i18n="projects.p2.solution">Integración de chatbots con APIs externas, procesamiento de solicitudes y manejo de respuestas dinámicas.</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <span class="project-meta-label" data-i18n="projects.meta.result">Resultado</span>
+                                <span class="project-meta-text" data-i18n="projects.p2.result">Sistema automatizado de interacción conversacional que procesa solicitudes y genera respuestas en tiempo real.</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span>PHP</span><span>APIs REST</span><span>Integrations</span><span>Git</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <div class="project-thumb">
+                            <img alt="RidePro - Backend y APIs para sistemas empresariales" src="assets/RidePro.png" />
+                        </div>
+                        <div class="project-head">
+                            <h3 class="project-title">RidePro</h3>
+                            <span class="tag tag-dark" data-i18n="projects.tags.backend">Backend & APIs</span>
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <span class="project-meta-label" data-i18n="projects.meta.context">Contexto</span>
+                                <span class="project-meta-text" data-i18n="projects.p1.context">Necesidad de un backend robusto para soportar operaciones empresariales con gestión de datos y consultas optimizadas.</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <span class="project-meta-label" data-i18n="projects.meta.solution">Solución</span>
+                                <span class="project-meta-text" data-i18n="projects.p1.solution">Desarrollo y mantenimiento del backend implementando APIs RESTful con gestión de modelos y optimización de consultas.</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span>Python</span><span>Django</span><span>DRF</span><span>MySQL</span><span>PostgreSQL</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <div class="project-thumb">
+                            <img alt="MedicalSoft - Arquitectura y desarrollo backend" src="assets/MedicalSoft.png" />
+                        </div>
+                        <div class="project-head">
+                            <h3 class="project-title">MedicalSoft</h3>
+                            <span class="tag tag-dark" data-i18n="projects.tags.arch">Arquitectura Backend</span>
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <span class="project-meta-label" data-i18n="projects.meta.context">Contexto</span>
+                                <span class="project-meta-text" data-i18n="projects.p3.context">Sistema con arquitectura acoplada que necesitaba separación de responsabilidades y modularidad.</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <span class="project-meta-label" data-i18n="projects.meta.solution">Solución</span>
+                                <span class="project-meta-text" data-i18n="projects.p3.solution">Refactorización de arquitectura modular con separación de responsabilidades e implementación de servicios en TypeScript.</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span>PHP</span><span>TypeScript</span><span>Express</span><span>Modular Auth</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <div class="project-thumb">
+                            <img alt="Cafecito Global - Aplicación web fullstack y despliegue cloud" src="assets/Cafecito.png" />
+                        </div>
+                        <div class="project-head">
+                            <h3 class="project-title">Cafecito Global</h3>
+                            <span class="tag tag-dark" data-i18n="projects.tags.fullstack">Fullstack & Cloud</span>
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <span class="project-meta-label" data-i18n="projects.meta.context">Contexto</span>
+                                <span class="project-meta-text" data-i18n="projects.p4.context">Necesidad de una aplicación web completa con despliegue en la nube, seguridad y escalabilidad.</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <span class="project-meta-label" data-i18n="projects.meta.solution">Solución</span>
+                                <span class="project-meta-text" data-i18n="projects.p4.solution">App web fullstack con React, backend, despliegue en AWS con Nginx, Gunicorn y autenticación JWT.</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span>React</span><span>AWS</span><span>Nginx</span><span>JWT</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="demos" style="background: var(--bg);">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow reveal" data-i18n="demos.eyebrow">Demo Lab</span>
+                    <div class="reveal">
+                        <h2 class="h2" data-i18n="demos.title">Prototipos en vivo</h2>
+                        <p class="lead" data-i18n="demos.lead">Prueba interactivamente soluciones de automatización e IA que puedes implementar en tu negocio.</p>
+                    </div>
+                </div>
+
+                <div class="services-grid">
+                    <div class="demo-card reveal">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                        <h4 data-i18n="demos.d1.title">Chatbot inteligente</h4>
+                        <p data-i18n="demos.d1.desc">Asistente conversacional que clasifica leads, responde FAQs y agenda citas automáticamente.</p>
+                        <span class="demo-badge" data-i18n="demos.soon">Próximamente</span>
+                    </div>
+
+                    <div class="demo-card reveal">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+                        </svg>
+                        <h4 data-i18n="demos.d2.title">Extractor de documentos</h4>
+                        <p data-i18n="demos.d2.desc">Sube un PDF y obtén datos estructurados automáticamente: facturas, contratos, registros.</p>
+                        <span class="demo-badge" data-i18n="demos.soon">Próximamente</span>
+                    </div>
+
+                    <div class="demo-card reveal">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 20V10M18 20V4M6 20v-4" />
+                        </svg>
+                        <h4 data-i18n="demos.d3.title">Dashboard de ventas</h4>
+                        <p data-i18n="demos.d3.desc">Panel en tiempo real con métricas de conversión, pipeline y seguimiento comercial.</p>
+                        <span class="demo-badge" data-i18n="demos.soon">Próximamente</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="como-trabajo">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow reveal" data-i18n="how.eyebrow">Cómo trabajo</span>
+                    <div class="reveal">
+                        <h2 class="h2" data-i18n="how.title">Del problema a la solución</h2>
+                        <p class="lead" data-i18n="how.lead">No vendo únicamente código. Construyo soluciones que responden a un problema real de negocio.</p>
+                    </div>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step reveal">
+                        <div class="step-num">01</div>
+                        <h4 data-i18n="how.s1.title">Diagnóstico</h4>
+                        <p data-i18n="how.s1.desc">Entiendo el proceso actual y detecto oportunidades de mejora.</p>
+                    </div>
+                    <div class="step reveal">
+                        <div class="step-num">02</div>
+                        <h4 data-i18n="how.s2.title">Diseño</h4>
+                        <p data-i18n="how.s2.desc">Defino la arquitectura y la solución más adecuada.</p>
+                    </div>
+                    <div class="step reveal">
+                        <div class="step-num">03</div>
+                        <h4 data-i18n="how.s3.title">Implementación</h4>
+                        <p data-i18n="how.s3.desc">Desarrollo e integro la solución.</p>
+                    </div>
+                    <div class="step reveal">
+                        <div class="step-num">04</div>
+                        <h4 data-i18n="how.s4.title">Lanzamiento</h4>
+                        <p data-i18n="how.s4.desc">Pongo el sistema en funcionamiento y verifico su comportamiento.</p>
+                    </div>
+                    <div class="step reveal">
+                        <div class="step-num">05</div>
+                        <h4 data-i18n="how.s5.title">Optimización</h4>
+                        <p data-i18n="how.s5.desc">Ajusto y mejoro la solución según el uso real.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="sobre-mi" style="background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
             <div class="container about-grid">
                 <div class="about-intro">
-                    <span class="eyebrow reveal" data-i18n="about.eyebrow">01 · Sobre Mí</span>
-                    <h2 class="h2 reveal" data-i18n="about.title">La intersección de disciplinas.</h2>
+                    <span class="eyebrow reveal" data-i18n="about.eyebrow">Sobre mí</span>
+                    <h2 class="h2 reveal" data-i18n="about.title">Tecnología con visión interdisciplinaria.</h2>
                 </div>
                 <div class="about-body">
-                    <blockquote class="quote reveal" data-i18n="about.quote">
-                        «Mi enfoque combina la ingeniería de sonido con la creatividad y el desarrollo web.»
-                    </blockquote>
                     <div class="about-cols">
-                        <p class="reveal" data-i18n="about.p1">Como Ingeniero de Sonido, aprendí a ser preciso
-                            basándome en las matemáticas y la física. Como Desarrollador Fullstack, aprendí a construir
-                            herramientas que ayudan a personas del día a día. Hoy, la IA es el puente para conectar
-                            ambos mundos y crear nuevas aplicaciones.</p>
-                        <p class="reveal" data-i18n="about.p2">He liderado proyectos desde la concepción técnica hasta
-                            la implementación de algoritmos complejos, siempre priorizando una experiencia de usuario
-                            impecable y una arquitectura escalable y sostenible.</p>
+                        <p class="reveal" data-i18n="about.p1">Soy Ingeniero de Sonido y desarrollador de software con experiencia en desarrollo web, backend, automatización y soluciones digitales. Actualmente curso una Maestría en Inteligencia Artificial, profundizando en modelos, algoritmos y aplicaciones de IA.</p>
+                        <p class="reveal" data-i18n="about.p2">Mi experiencia también incluye marketing digital y adquisición de clientes, lo que me permite entender las soluciones tecnológicas desde una perspectiva más amplia: no solo cómo construirlas, sino también cómo pueden contribuir a los procesos comerciales de una empresa.</p>
                     </div>
+                    <p class="reveal" data-i18n="about.p3" style="margin-top: 1.5rem; color: var(--ink-soft); line-height: 1.8;">Mi enfoque combina desarrollo de software, Inteligencia Artificial y visión de negocio para construir soluciones prácticas, escalables y orientadas a resultados.</p>
                 </div>
             </div>
         </section>
@@ -1521,11 +1994,10 @@
         <section class="section audio" id="audio">
             <div class="container audio-grid">
                 <div>
-                    <span class="eyebrow reveal" data-i18n="audio.eyebrow">02 · Ingeniería de Sonido</span>
-                    <h2 class="h2 reveal" data-i18n="audio.title">Precisión técnica y arte sonoro.</h2>
-                    <p class="lead reveal" style="margin-top: 1.1rem;" data-i18n="audio.lead">
-                        Experto en la optimización de entornos acústicos y la producción de audio de alta fidelidad,
-                        aplicando principios físicos y matemáticos para lograr la excelencia sonora.
+                    <span class="eyebrow reveal" data-i18n="audio.eyebrow">Ingeniería de Sonido</span>
+                    <h2 class="h2 reveal" data-i18n="audio.title">Una segunda dimensión de mi experiencia.</h2>
+                    <p class="lead reveal" data-i18n="audio.lead">
+                        Mi formación en Ingeniería de Sonido complementa mi perfil técnico con principios de acústica, procesamiento de señales y diseño sonoro.
                     </p>
 
                     <div class="features">
@@ -1536,8 +2008,7 @@
                                 <path d="M12 5v2" />
                             </svg>
                             <h4 data-i18n="audio.f1.title">Diseño Acústico</h4>
-                            <p data-i18n="audio.f1.desc">Creación de diseños acústicos integrales para estudios y
-                                espacios profesionales, garantizando una respuesta en frecuencia equilibrada.</p>
+                            <p data-i18n="audio.f1.desc">Creación de diseños acústicos integrales para estudios y espacios profesionales.</p>
                         </div>
 
                         <div class="feature reveal">
@@ -1548,8 +2019,7 @@
                                 <circle cx="7" cy="18" r="2" />
                             </svg>
                             <h4 data-i18n="audio.f2.title">Acondicionamiento</h4>
-                            <p data-i18n="audio.f2.desc">Acondicionamiento y aislamiento acústico avanzado para el
-                                control de reflexiones, tiempos de reverberación y transmisión de ruido.</p>
+                            <p data-i18n="audio.f2.desc">Acondicionamiento y aislamiento acústico avanzado para el control de reflexiones y reverberación.</p>
                         </div>
 
                         <div class="feature reveal">
@@ -1557,8 +2027,7 @@
                                 <path d="M5 21V9M9.5 21V5M14 21V12M18.5 21V3" />
                             </svg>
                             <h4 data-i18n="audio.f3.title">Diseño de Sonido</h4>
-                            <p data-i18n="audio.f3.desc">Creación de texturas y paisajes sonoros únicos para medios
-                                digitales, videojuegos y aplicaciones interactivas.</p>
+                            <p data-i18n="audio.f3.desc">Creación de texturas y paisajes sonoros para medios digitales y aplicaciones interactivas.</p>
                         </div>
 
                         <div class="feature reveal">
@@ -1568,9 +2037,19 @@
                                 <path d="M12 19v3" />
                             </svg>
                             <h4 data-i18n="audio.f4.title">Post-Producción</h4>
-                            <p data-i18n="audio.f4.desc">Grabación, edición, mezcla y mastering profesional
-                                (Stereo/Surround) con estándares de industria.</p>
+                            <p data-i18n="audio.f4.desc">Grabación, edición, mezcla y mastering profesional con estándares de industria.</p>
                         </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <a class="btn btn-outline" href="https://www.akustikvision.com" target="_blank" rel="noopener">
+                            <span data-i18n="audio.visit">Visitar sitio</span>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" x2="21" y1="14" y2="3" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
@@ -1579,126 +2058,18 @@
                         <img src="assets/acoustic_design.png" alt="Diseño Acústico Profesional"
                             data-i18n-alt="audio.alt" />
                     </div>
-                    <div class="audio-badge">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="12" cy="12" r="9" />
-                            <path d="m8.5 12 2.5 2.5 4.5-5" />
-                        </svg>
-                        <span data-i18n="audio.badge">Calidad Certificada</span>
-                    </div>
                     <div class="audio-corner"></div>
                 </div>
-            </div>
-        </section>
-
-        <section class="section projects" id="proyectos">
-            <div class="container">
-                <span class="eyebrow reveal" style="color: rgba(255,255,255,0.6);" data-i18n="projects.eyebrow">03 ·
-                    Proyectos</span>
-                <div class="slider-bar reveal">
-                    <h2 class="h2" data-i18n="projects.title">Trabajo Desarrollado</h2>
-                    <div class="slider-nav" aria-label="Controles del carrusel">
-                        <button class="slider-btn" id="prevBtn" aria-label="Proyecto anterior">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="m15 6-6 6 6 6" />
-                            </svg>
-                        </button>
-                        <button class="slider-btn" id="nextBtn" aria-label="Siguiente proyecto">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="m9 6 6 6-6 6" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="slider-wrap reveal" id="sliderWrap">
-                    <div class="slider" id="slider" tabindex="0" aria-label="Carrusel de proyectos">
-                        <div class="slide">
-                            <article class="project-card">
-                                <div class="project-thumb">
-                                    <img alt="RidePro Backend" src="assets/RidePro.png" />
-                                </div>
-                                <div class="project-head">
-                                    <h3 class="project-title">RidePro</h3>
-                                    <span class="tag" data-i18n="projects.tags.backend">Backend Developer</span>
-                                </div>
-                                <p class="project-desc" data-i18n="projects.p1.desc">Desarrollo y mantenimiento del
-                                    backend implementando APIs RESTful. Gestión de modelos y optimización de consultas
-                                    en MySQL y PostgreSQL.</p>
-                                <div class="project-tech">
-                                    <span>Python</span><span>Django</span><span>DRF</span><span>MySQL</span><span>PostgreSQL</span>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="slide">
-                            <article class="project-card">
-                                <div class="project-thumb">
-                                    <img alt="CariAI Chatbot" src="assets/CariAI.png" />
-                                </div>
-                                <div class="project-head">
-                                    <h3 class="project-title">CariAI</h3>
-                                    <span class="tag" data-i18n="projects.tags.chatbot">Chatbot Developer</span>
-                                </div>
-                                <p class="project-desc" data-i18n="projects.p2.desc">Integración de chatbots con APIs
-                                    externas utilizando PHP y la plataforma de CariAI. Procesamiento de solicitudes y
-                                    manejo de respuestas dinámicas.</p>
-                                <div class="project-tech">
-                                    <span>PHP</span><span>APIs REST</span><span>Integrations</span><span>Git</span>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="slide">
-                            <article class="project-card">
-                                <div class="project-thumb">
-                                    <img alt="MedicalSoft Architecture" src="assets/MedicalSoft.png" />
-                                </div>
-                                <div class="project-head">
-                                    <h3 class="project-title">MedicalSoft</h3>
-                                    <span class="tag" data-i18n="projects.tags.fullstack">Fullstack Developer</span>
-                                </div>
-                                <p class="project-desc" data-i18n="projects.p3.desc">Refactorización de arquitectura
-                                    modular. Separación de responsabilidades e implementación de servicios en
-                                    TypeScript.</p>
-                                <div class="project-tech">
-                                    <span>PHP</span><span>TypeScript</span><span>Express</span><span>Modular Auth</span>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="slide">
-                            <article class="project-card">
-                                <div class="project-thumb">
-                                    <img alt="Cafecito Global App" src="assets/Cafecito.png" />
-                                </div>
-                                <div class="project-head">
-                                    <h3 class="project-title">Cafecito Global</h3>
-                                    <span class="tag" data-i18n="projects.tags.fullstack">Fullstack Developer</span>
-                                </div>
-                                <p class="project-desc" data-i18n="projects.p4.desc">App web fullstack con React y AWS.
-                                    Configuración de Nginx, Gunicorn y seguridad con JWT para autenticación.</p>
-                                <div class="project-tech">
-                                    <span>React</span><span>AWS</span><span>Nginx</span><span>JWT</span>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slider-dots" id="sliderDots" aria-label="Indicadores del carrusel"></div>
             </div>
         </section>
 
         <section class="section" id="tecnologias">
             <div class="container">
                 <div class="section-head">
-                    <span class="eyebrow reveal" data-i18n="tech.eyebrow">04 · Stack Técnico</span>
+                    <span class="eyebrow reveal" data-i18n="tech.eyebrow">Stack Técnico</span>
                     <div class="reveal">
                         <h2 class="h2" data-i18n="tech.title">Tecnologías y Herramientas</h2>
-                        <p class="lead" style="margin-top: 1.1rem;" data-i18n="tech.lead">Mi stack técnico y
-                            herramientas de desarrollo especializado para la creación de soluciones digitales
-                            escalables y eficientes.</p>
+                        <p class="lead" data-i18n="tech.lead">Herramientas y tecnologías reales utilizadas en mis proyectos y soluciones.</p>
                     </div>
                 </div>
 
@@ -1706,17 +2077,22 @@
                     <div class="tech-group reveal">
                         <h4>
                             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="m8 7-5 5 5 5" />
-                                <path d="m16 7 5 5-5 5" />
+                                <circle cx="12" cy="12" r="3" />
+                                <path d="M12 5v14M5 12h14" />
+                                <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(45 12 12)" />
                             </svg>
-                            <span data-i18n="tech.languages">Lenguajes</span>
+                            <span data-i18n="tech.ai">IA & Automatización</span>
                         </h4>
                         <div class="chips">
-                            <span class="chip">Python</span>
-                            <span class="chip">TypeScript</span>
-                            <span class="chip">JavaScript</span>
-                            <span class="chip">PHP</span>
-                            <span class="chip">SQL</span>
+                            <span class="chip chip-dark">Python</span>
+                            <span class="chip">APIs</span>
+                            <span class="chip">LLMs</span>
+                            <span class="chip">OpenCode</span>
+                            <span class="chip">Antigravity</span>
+                            <span class="chip">Codex</span>
+                            <span class="chip">DeepSeek</span>
+                            <span class="chip">Mistral</span>
+                            <span class="chip">Gemini</span>
                         </div>
                     </div>
 
@@ -1760,11 +2136,12 @@
                                 <path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" />
                                 <path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />
                             </svg>
-                            <span data-i18n="tech.databases">Databases</span>
+                            <span data-i18n="tech.databases">Bases de Datos</span>
                         </h4>
-                        <div class="db-grid">
-                            <div class="db-box">MySQL</div>
-                            <div class="db-box">PostgreSQL</div>
+                        <div class="chips">
+                            <span class="chip">MySQL</span>
+                            <span class="chip">PostgreSQL</span>
+                            <span class="chip">SQL</span>
                         </div>
                     </div>
 
@@ -1773,7 +2150,7 @@
                             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M17.5 19a4.5 4.5 0 1 0-.4-9A6 6 0 0 0 6 11.5 4.5 4.5 0 0 0 7.5 19h10Z" />
                             </svg>
-                            <span data-i18n="tech.devops">Cloud &amp; DevOps</span>
+                            <span data-i18n="tech.devops">Cloud & DevOps</span>
                         </h4>
                         <ul class="list-lines">
                             <li>AWS (EC2, VPC, S3)</li>
@@ -1789,73 +2166,141 @@
                             </svg>
                             <span data-i18n="tech.tools">Herramientas</span>
                         </h4>
-                        <div class="tools-grid">
-                            <div class="tool">
-                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <rect x="3" y="4" width="18" height="16" rx="1" />
-                                    <path d="m8 9 3 3-3 3" />
-                                    <path d="M13 15h4" />
-                                </svg>
-                                <span>VS Code</span>
-                            </div>
-                            <div class="tool">
-                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M6 3v12" />
-                                    <circle cx="18" cy="6" r="3" />
-                                    <circle cx="6" cy="18" r="3" />
-                                    <path d="M18 9a9 9 0 0 1-9 9" />
-                                </svg>
-                                <span>Git / GitHub</span>
-                            </div>
-                            <div class="tool">
-                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M22 2 11 13" />
-                                    <path d="M22 2 15 22l-4-9-9-4Z" />
-                                </svg>
-                                <span>Postman</span>
-                            </div>
-                            <div class="tool">
-                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <rect x="4" y="4" width="4" height="16" />
-                                    <rect x="10" y="4" width="4" height="10" />
-                                    <rect x="16" y="4" width="4" height="13" />
-                                </svg>
-                                <span>Jira / Trello</span>
-                            </div>
-                            <div class="tool">
-                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <rect x="3" y="4" width="18" height="16" rx="1" />
-                                    <path d="m8 9 3 3-3 3" />
-                                    <path d="M13 15h4" />
-                                </svg>
-                                <span>opencode</span>
-                            </div>
-                            <div class="tool">
-                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M12 3a3 3 0 0 0-3 3c0 .6.2 1.1.5 1.6A9 9 0 0 0 3 16v2h18v-2a9 9 0 0 0-6.5-8.4c.3-.5.5-1 .5-1.6a3 3 0 0 0-3-3Z" />
-                                    <path d="M12 14v7M8 21h8" />
-                                </svg>
-                                <span>Antigravity</span>
-                            </div>
-                            <div class="tool">
-                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M12 2c3 0 4.5 1.5 4.5 4 0 1.4-.5 2.4-1.2 3.1.6 1.6 2.7 2.9 4.7 3.2-.3 3-3 5.7-6 5.7H9l-6 3 1.5-4C2.3 15.5 1 13.5 1 11c0-5 4.5-9 11-9Z" />
-                                </svg>
-                                <span>ChatGPT (Codex)</span>
-                            </div>
+                        <div class="chips">
+                            <span class="chip">VS Code</span>
+                            <span class="chip">Git / GitHub</span>
+                            <span class="chip">Postman</span>
+                            <span class="chip">opencode</span>
+                            <span class="chip">Antigravity</span>
+                            <span class="chip">ChatGPT (Codex)</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section class="section" id="marketing" style="background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow reveal" data-i18n="marketing.eyebrow">Marketing Digital</span>
+                    <div class="reveal">
+                        <h2 class="h2" data-i18n="marketing.title">Marketing orientado a adquisición</h2>
+                        <p class="lead" data-i18n="marketing.lead">Combino marketing, desarrollo web y automatización para construir sistemas que convierten tráfico en oportunidades comerciales.</p>
+                    </div>
+                </div>
+
+                <div class="marketing-list">
+                    <div class="marketing-item reveal">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M22 2 11 13" />
+                            <path d="M22 2 15 22l-4-9-9-4Z" />
+                        </svg>
+                        <span data-i18n="marketing.m1">Generación de leads</span>
+                    </div>
+                    <div class="marketing-item reveal">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M7 7h10M7 12h10M7 17h6" />
+                        </svg>
+                        <span data-i18n="marketing.m2">Landing pages orientadas a conversión</span>
+                    </div>
+                    <div class="marketing-item reveal">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                            <line x1="4" x2="4" y1="22" y2="15" />
+                        </svg>
+                        <span data-i18n="marketing.m3">Embudos comerciales</span>
+                    </div>
+                    <div class="marketing-item reveal">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2a3 3 0 0 0-3 3c0 .6.2 1.1.5 1.6A9 9 0 0 0 3 16v2h18v-2a9 9 0 0 0-6.5-8.4c.3-.5.5-1 .5-1.6a3 3 0 0 0-3-3Z" />
+                            <path d="M12 14v7M8 21h8" />
+                        </svg>
+                        <span data-i18n="marketing.m4">Automatización de seguimiento</span>
+                    </div>
+                    <div class="marketing-item reveal">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <ellipse cx="12" cy="5" rx="8" ry="3" />
+                            <path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" />
+                            <path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />
+                        </svg>
+                        <span data-i18n="marketing.m5">Integración con CRM</span>
+                    </div>
+                    <div class="marketing-item reveal">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M3 3v18h18" />
+                            <path d="m7 16 4-8 4 4 5-9" />
+                        </svg>
+                        <span data-i18n="marketing.m6">Analítica y optimización de conversión</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contacto" style="background: var(--bg);">
+            <div class="container">
+                <div class="section-head" style="text-align: center;">
+                    <span class="eyebrow reveal" style="justify-content: center;" data-i18n="contact.eyebrow">Contacto</span>
+                    <div class="reveal">
+                        <h2 class="h2" data-i18n="contact.title">¿Tienes un proceso que podríamos mejorar?</h2>
+                        <p class="lead" style="margin-inline: auto;" data-i18n="contact.lead">Cuéntame qué quieres construir, automatizar o mejorar y revisamos juntos cuál puede ser la mejor solución.</p>
+                    </div>
+                </div>
+
+                <form class="contact-form reveal" id="contactForm" novalidate>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nombre" data-i18n="contact.f1">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" />
+                            <span class="form-error" id="error-nombre"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa" data-i18n="contact.f2">Empresa</label>
+                            <input type="text" id="empresa" name="empresa" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="contact.f3">Email</label>
+                            <input type="email" id="email" name="email" />
+                            <span class="form-error" id="error-email"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="whatsapp" data-i18n="contact.f4">WhatsApp</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" />
+                            <span class="form-error" id="error-whatsapp"></span>
+                        </div>
+                        <div class="form-group full">
+                            <label for="necesidad" data-i18n="contact.f5">¿Qué necesitas?</label>
+                            <select id="necesidad" name="necesidad">
+                                <option value="" data-i18n="contact.opt0">Selecciona una opción</option>
+                                <option value="IA y automatización" data-i18n="contact.opt1">IA y automatización</option>
+                                <option value="Desarrollo web o sistema" data-i18n="contact.opt2">Desarrollo web o sistema</option>
+                                <option value="Marketing y adquisición" data-i18n="contact.opt3">Marketing y adquisición</option>
+                                <option value="Otro" data-i18n="contact.opt4">Otro</option>
+                            </select>
+                            <span class="form-error" id="error-necesidad"></span>
+                        </div>
+                        <div class="form-group full">
+                            <label for="descripcion" data-i18n="contact.f6">Descripción del proyecto</label>
+                            <textarea id="descripcion" name="descripcion" rows="5"></textarea>
+                            <span class="form-error" id="error-descripcion"></span>
+                        </div>
+                    </div>
+                    <div id="form-success" class="form-message success" data-i18n="contact.success">Mensaje enviado correctamente. Te responderé pronto.</div>
+                    <div id="form-error-msg" class="form-message error" data-i18n="contact.error-msg">Hubo un error al enviar. Intenta nuevamente o contáctame directamente.</div>
+                    <div class="form-submit">
+                        <button class="btn btn-primary" type="submit" id="submitBtn" data-i18n="contact.submit">Solicitar diagnóstico</button>
+                        <a class="btn btn-outline" href="https://wa.me/573005624810" target="_blank" rel="noopener" data-i18n="contact.alt">Hablar por WhatsApp</a>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer" id="contacto">
+    <footer class="footer" id="footer">
         <div class="container">
             <div class="footer-hero">
-                <h2 class="reveal" data-i18n="footer.title">Hagamos algo excepcional.</h2>
-                <p class="reveal" data-i18n="footer.desc">Disponible para colaboraciones estratégicas y proyectos de
-                    alto impacto tecnológico.</p>
+                <h2 class="reveal" data-i18n="footer.title">¿Tienes un proceso que podríamos mejorar?</h2>
+                <p class="reveal" data-i18n="footer.desc">Cuéntame qué quieres construir, automatizar o mejorar y revisamos juntos cuál puede ser la mejor solución.</p>
                 <div class="footer-contact reveal">
                     <a class="footer-email"
                         href="mailto:pedrazahoyoscristiandavid@gmail.com">pedrazahoyoscristiandavid@gmail.com</a>
@@ -1865,15 +2310,25 @@
                         </svg>
                         WhatsApp: 3005624810
                     </a>
+                    <div class="footer-socials">
+                        <a class="footer-social" href="https://www.linkedin.com/in/cristian-pedraza-hoyos-96b830252/" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            LinkedIn
+                        </a>
+                        <a class="footer-social" href="https://github.com/CrisDev96" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <div class="copyright">© <span id="year">2026</span>&nbsp;Cristian Pedraza</div>
                 <div class="footer-links">
-                    <a href="https://www.linkedin.com/in/cristian-pedraza-hoyos-96b830252/" target="_blank"
-                        rel="noopener">LinkedIn</a>
-                    <a href="https://github.com/CrisDev96" target="_blank" rel="noopener">GitHub</a>
+                    <a href="#servicios" data-i18n="footer.services">Servicios</a>
+                    <a href="#proyectos" data-i18n="footer.projects">Proyectos</a>
+                    <a href="#contacto" data-i18n="footer.contact">Contacto</a>
                 </div>
             </div>
         </div>
@@ -1885,149 +2340,375 @@
         </svg>
     </button>
 
+    <script src="config.js"></script>
     <script>
         (function () {
+            emailjs.init(window.__CONFIG.emailJSPublicKey);
+
             var translations = {
                 es: {
-                    'nav.about': 'Sobre mí',
-                    'nav.experience': 'Experiencia',
-                    'nav.audio': 'Audio',
+                    'a11y.skip': 'Saltar al contenido',
+                    'nav.services': 'Servicios',
                     'nav.projects': 'Proyectos',
+                    'nav.how': 'Cómo trabajo',
+                    'nav.about': 'Sobre mí',
                     'nav.tech': 'Tecnologías',
-                    'nav.contact': 'Contacto',
-                    'hero.eyebrow': 'Portfolio Profesional',
-                    'hero.role1': 'Fullstack Developer',
-                    'hero.role2': 'Sound Engineer',
-                    'hero.role3': 'AI Specialist',
-                    'hero.desc': 'Fusionando el arte del sonido con la precisión del código y la potencia de la Inteligencia Artificial para crear experiencias digitales únicas.',
-                    'hero.projects': 'Ver Proyectos',
-                    'hero.contact': 'Contacto',
+                    'nav.audio': 'Audio',
+                    'nav.cta': 'Solicitar diagnóstico',
+                    'hero.eyebrow': 'Consultoría Tecnológica',
+                    'hero.title': 'IA, Automatización y Desarrollo Web',
+                    'hero.desc': 'Construyo soluciones digitales que ayudan a empresas a captar clientes, automatizar procesos y mejorar su operación mediante Inteligencia Artificial, desarrollo web y marketing digital.',
+                    'hero.role2': 'Automatización',
+                    'hero.role3': 'Desarrollo Web',
+                    'hero.role4': 'Backend',
+                    'hero.role5': 'Marketing Digital',
+                    'hero.cta1': 'Solicitar diagnóstico',
+                    'hero.cta2': 'Ver proyectos',
                     'hero.alt': 'Retrato profesional de Cristian Pedraza',
-                    'stats.dev.title': 'Desarrollo',
-                    'stats.dev.desc': 'Arquitecturas robustas, código limpio y escalable. Especialista en Django, React, Node.js, PHP, TypeScript, HTML5, CSS3 y ecosistemas Cloud.',
-                    'stats.audio.title': 'Audio',
-                    'stats.audio.desc': 'Diseño sonoro y procesamiento de señales, integrando principios de acústica y tecnologías digitales para optimizar la calidad del sonido.',
-                    'stats.ai.title': 'Inteligencia Artificial',
-                    'stats.ai.desc': 'Integración de modelos de Machine Learning, Deep Learning y Reinforcement Learning, incluyendo visión por computador, análisis predictivo y agentes para entornos Atari.',
-                    'about.eyebrow': '01 · Sobre Mí',
-                    'about.title': 'La intersección de disciplinas.',
-                    'about.quote': '«Mi enfoque combina la ingeniería de sonido con la creatividad y el desarrollo web.»',
-                    'about.p1': 'Como Ingeniero de Sonido, aprendí a ser preciso basándome en las matemáticas y la física. Como Desarrollador Fullstack, aprendí a construir herramientas que ayudan a personas del día a día. Hoy, la IA es el puente para conectar ambos mundos y crear nuevas aplicaciones.',
-                    'about.p2': 'He liderado proyectos desde la concepción técnica hasta la implementación de algoritmos complejos, siempre priorizando una experiencia de usuario impecable y una arquitectura escalable y sostenible.',
-                    'audio.eyebrow': '02 · Ingeniería de Sonido',
-                    'audio.title': 'Precisión técnica y arte sonoro.',
-                    'audio.lead': 'Experto en la optimización de entornos acústicos y la producción de audio de alta fidelidad, aplicando principios físicos y matemáticos para lograr la excelencia sonora.',
+                    'services.eyebrow': 'Servicios',
+                    'services.title': '¿Qué puedo hacer por tu empresa?',
+                    'services.lead': 'Soluciones de tecnología que conectan marketing, ventas y operaciones para reducir trabajo manual y mejorar la gestión de clientes.',
+                    'services.s1.title': 'IA & Automatización',
+                    'services.s1.desc': 'Diseño e implemento soluciones de Inteligencia Artificial y automatización para reducir tareas repetitivas, procesar información y mejorar procesos empresariales.',
+                    'services.s1.u1': 'Agentes de IA',
+                    'services.s1.u2': 'Automatización de procesos',
+                    'services.s1.u3': 'Clasificación de leads',
+                    'services.s1.u4': 'Procesamiento de documentos',
+                    'services.s1.u5': 'Integración de APIs',
+                    'services.s1.u6': 'Flujos de seguimiento',
+                    'services.s1.cta': 'Quiero automatizar un proceso',
+                    'services.s2.title': 'Desarrollo Web & Sistemas',
+                    'services.s2.desc': 'Desarrollo aplicaciones web, dashboards, sistemas internos, APIs e integraciones adaptadas a las necesidades de cada negocio.',
+                    'services.s2.u2': 'Sitios corporativos',
+                    'services.s2.u3': 'Aplicaciones web',
+                    'services.s2.u5': 'Sistemas administrativos',
+                    'services.s2.u8': 'Integraciones',
+                    'services.s2.cta': 'Necesito una solución web',
+                    'services.s3.title': 'Marketing & Adquisición',
+                    'services.s3.desc': 'Creo sistemas digitales orientados a captar oportunidades comerciales y conectar marketing, ventas y seguimiento.',
+                    'services.s3.u1': 'Landing pages de conversión',
+                    'services.s3.u2': 'Generación de leads',
+                    'services.s3.u3': 'Embudos comerciales',
+                    'services.s3.u4': 'Automatización de seguimiento',
+                    'services.s3.u5': 'Integración con CRM',
+                    'services.s3.u6': 'Analítica',
+                    'services.s3.cta': 'Quiero mejorar mi captación',
+                    'auto.eyebrow': 'Automatización',
+                    'auto.title': 'Convierte procesos manuales en sistemas automatizados',
+                    'auto.lead': 'Ejemplos de cómo la IA y la automatización pueden transformar la operación de tu empresa.',
+                    'auto.c1.title': 'Captación de clientes',
+                    'auto.c1.s3': 'Clasificación',
+                    'auto.c1.s5': 'Notificación',
+                    'auto.c1.s6': 'Seguimiento',
+                    'auto.c2.title': 'Documentos',
+                    'auto.c2.s2': 'Extracción',
+                    'auto.c2.s4': 'Info estructurada',
+                    'auto.c2.s5': 'Base de datos',
+                    'auto.c3.title': 'Ventas',
+                    'auto.c3.s2': 'Registro',
+                    'auto.c3.s3': 'Seguimiento',
+                    'auto.c3.s4': 'Recordatorio',
+                    'auto.c3.s5': 'Reporte',
+                    'auto.c4.title': 'Operaciones',
+                    'auto.c4.s1': 'Formulario',
+                    'auto.c4.s2': 'Procesamiento',
+                    'auto.c4.s3': 'Automatización',
+                    'auto.c4.s4': 'Resultado',
+                    'auto.c5.title': 'Atención al cliente',
+                    'auto.c5.s1': 'Cliente',
+                    'auto.c5.s2': 'Asistente IA',
+                    'auto.c5.s3': 'Información',
+                    'auto.c5.s4': 'Derivación',
+                    'auto.c5.s5': 'Registro',
+                    'projects.eyebrow': 'Proyectos',
+                    'projects.title': 'Casos de estudio',
+                    'projects.lead': 'Proyectos reales que demuestran capacidad técnica y orientación a resultados de negocio.',
+                    'projects.tags.ai': 'IA & Automatización',
+                    'projects.tags.backend': 'Backend & APIs',
+                    'projects.tags.arch': 'Arquitectura Backend',
+                    'projects.tags.fullstack': 'Fullstack & Cloud',
+                    'projects.meta.context': 'Contexto',
+                    'projects.meta.solution': 'Solución',
+                    'projects.meta.result': 'Resultado',
+                    'projects.p1.context': 'Necesidad de un backend robusto para soportar operaciones empresariales con gestión de datos y consultas optimizadas.',
+                    'projects.p1.solution': 'Desarrollo y mantenimiento del backend implementando APIs RESTful con gestión de modelos y optimización de consultas.',
+                    'projects.p2.context': 'Necesidad de automatizar la interacción con clientes mediante un chatbot inteligente capaz de procesar solicitudes y dar respuestas dinámicas.',
+                    'projects.p2.solution': 'Integración de chatbots con APIs externas, procesamiento de solicitudes y manejo de respuestas dinámicas.',
+                    'projects.p2.result': 'Sistema automatizado de interacción conversacional que procesa solicitudes y genera respuestas en tiempo real.',
+                    'projects.p3.context': 'Sistema con arquitectura acoplada que necesitaba separación de responsabilidades y modularidad.',
+                    'projects.p3.solution': 'Refactorización de arquitectura modular con separación de responsabilidades e implementación de servicios en TypeScript.',
+                    'projects.p4.context': 'Necesidad de una aplicación web completa con despliegue en la nube, seguridad y escalabilidad.',
+                    'projects.p4.solution': 'App web fullstack con React, backend, despliegue en AWS con Nginx, Gunicorn y autenticación JWT.',
+                    'demos.eyebrow': 'Demo Lab',
+                    'demos.title': 'Prototipos en vivo',
+                    'demos.lead': 'Prueba interactivamente soluciones de automatización e IA que puedes implementar en tu negocio.',
+                    'demos.d1.title': 'Chatbot inteligente',
+                    'demos.d1.desc': 'Asistente conversacional que clasifica leads, responde FAQs y agenda citas automáticamente.',
+                    'demos.d2.title': 'Extractor de documentos',
+                    'demos.d2.desc': 'Sube un PDF y obtén datos estructurados automáticamente: facturas, contratos, registros.',
+                    'demos.d3.title': 'Dashboard de ventas',
+                    'demos.d3.desc': 'Panel en tiempo real con métricas de conversión, pipeline y seguimiento comercial.',
+                    'demos.soon': 'Próximamente',
+                    'how.eyebrow': 'Cómo trabajo',
+                    'how.title': 'Del problema a la solución',
+                    'how.lead': 'No vendo únicamente código. Construyo soluciones que responden a un problema real de negocio.',
+                    'how.s1.title': 'Diagnóstico',
+                    'how.s1.desc': 'Entiendo el proceso actual y detecto oportunidades de mejora.',
+                    'how.s2.title': 'Diseño',
+                    'how.s2.desc': 'Defino la arquitectura y la solución más adecuada.',
+                    'how.s3.title': 'Implementación',
+                    'how.s3.desc': 'Desarrollo e integro la solución.',
+                    'how.s4.title': 'Lanzamiento',
+                    'how.s4.desc': 'Pongo el sistema en funcionamiento y verifico su comportamiento.',
+                    'how.s5.title': 'Optimización',
+                    'how.s5.desc': 'Ajusto y mejoro la solución según el uso real.',
+                    'about.eyebrow': 'Sobre mí',
+                    'about.title': 'Tecnología con visión interdisciplinaria.',
+                    'about.p1': 'Soy Ingeniero de Sonido y desarrollador de software con experiencia en desarrollo web, backend, automatización y soluciones digitales. Actualmente curso una Maestría en Inteligencia Artificial, profundizando en modelos, algoritmos y aplicaciones de IA.',
+                    'about.p2': 'Mi experiencia también incluye marketing digital y adquisición de clientes, lo que me permite entender las soluciones tecnológicas desde una perspectiva más amplia: no solo cómo construirlas, sino también cómo pueden contribuir a los procesos comerciales de una empresa.',
+                    'about.p3': 'Mi enfoque combina desarrollo de software, Inteligencia Artificial y visión de negocio para construir soluciones prácticas, escalables y orientadas a resultados.',
+                    'audio.eyebrow': 'Ingeniería de Sonido',
+                    'audio.title': 'Una segunda dimensión de mi experiencia.',
+                    'audio.lead': 'Mi formación en Ingeniería de Sonido complementa mi perfil técnico con principios de acústica, procesamiento de señales y diseño sonoro.',
                     'audio.f1.title': 'Diseño Acústico',
-                    'audio.f1.desc': 'Creación de diseños acústicos integrales para estudios y espacios profesionales, garantizando una respuesta en frecuencia equilibrada.',
+                    'audio.f1.desc': 'Creación de diseños acústicos integrales para estudios y espacios profesionales.',
                     'audio.f2.title': 'Acondicionamiento',
-                    'audio.f2.desc': 'Acondicionamiento y aislamiento acústico avanzado para el control de reflexiones, tiempos de reverberación y transmisión de ruido.',
+                    'audio.f2.desc': 'Acondicionamiento y aislamiento acústico avanzado para el control de reflexiones y reverberación.',
                     'audio.f3.title': 'Diseño de Sonido',
-                    'audio.f3.desc': 'Creación de texturas y paisajes sonoros únicos para medios digitales, videojuegos y aplicaciones interactivas.',
+                    'audio.f3.desc': 'Creación de texturas y paisajes sonoros para medios digitales y aplicaciones interactivas.',
                     'audio.f4.title': 'Post-Producción',
-                    'audio.f4.desc': 'Grabación, edición, mezcla y mastering profesional (Stereo/Surround) con estándares de industria.',
+                    'audio.f4.desc': 'Grabación, edición, mezcla y mastering profesional con estándares de industria.',
+                    'audio.visit': 'Visitar sitio',
                     'audio.alt': 'Diseño Acústico Profesional',
-                    'audio.badge': 'Calidad Certificada',
-                    'projects.eyebrow': '03 · Proyectos',
-                    'projects.title': 'Trabajo Desarrollado',
-                    'projects.tags.backend': 'Backend Developer',
-                    'projects.tags.chatbot': 'Chatbot Developer',
-                    'projects.tags.fullstack': 'Fullstack Developer',
-                    'projects.p1.desc': 'Desarrollo y mantenimiento del backend implementando APIs RESTful. Gestión de modelos y optimización de consultas en MySQL y PostgreSQL.',
-                    'projects.p2.desc': 'Integración de chatbots con APIs externas utilizando PHP y la plataforma de CariAI. Procesamiento de solicitudes y manejo de respuestas dinámicas.',
-                    'projects.p3.desc': 'Refactorización de arquitectura modular. Separación de responsabilidades e implementación de servicios en TypeScript.',
-                    'projects.p4.desc': 'App web fullstack con React y AWS. Configuración de Nginx, Gunicorn y seguridad con JWT para autenticación.',
-                    'tech.eyebrow': '04 · Stack Técnico',
+                    'tech.eyebrow': 'Stack Técnico',
                     'tech.title': 'Tecnologías y Herramientas',
-                    'tech.lead': 'Mi stack técnico y herramientas de desarrollo especializado para la creación de soluciones digitales escalables y eficientes.',
-                    'tech.languages': 'Lenguajes',
+                    'tech.lead': 'Herramientas y tecnologías reales utilizadas en mis proyectos y soluciones.',
+                    'tech.ai': 'IA & Automatización',
                     'tech.backend': 'Backend',
                     'tech.frontend': 'Frontend',
-                    'tech.databases': 'Databases',
+                    'tech.databases': 'Bases de Datos',
                     'tech.devops': 'Cloud & DevOps',
                     'tech.tools': 'Herramientas',
-                    'footer.title': 'Hagamos algo excepcional.',
-                    'footer.desc': 'Disponible para colaboraciones estratégicas y proyectos de alto impacto tecnológico.',
-                    'a11y.skip': 'Saltar al contenido'
+                    'marketing.eyebrow': 'Marketing Digital',
+                    'marketing.title': 'Marketing orientado a adquisición',
+                    'marketing.lead': 'Combino marketing, desarrollo web y automatización para construir sistemas que convierten tráfico en oportunidades comerciales.',
+                    'marketing.m1': 'Generación de leads',
+                    'marketing.m2': 'Landing pages orientadas a conversión',
+                    'marketing.m3': 'Embudos comerciales',
+                    'marketing.m4': 'Automatización de seguimiento',
+                    'marketing.m5': 'Integración con CRM',
+                    'marketing.m6': 'Analítica y optimización de conversión',
+                    'contact.eyebrow': 'Contacto',
+                    'contact.title': '¿Tienes un proceso que podríamos mejorar?',
+                    'contact.lead': 'Cuéntame qué quieres construir, automatizar o mejorar y revisamos juntos cuál puede ser la mejor solución.',
+                    'contact.f1': 'Nombre',
+                    'contact.f2': 'Empresa',
+                    'contact.f3': 'Email',
+                    'contact.f4': 'WhatsApp',
+                    'contact.f5': '¿Qué necesitas?',
+                    'contact.f6': 'Descripción del proyecto',
+                    'contact.opt0': 'Selecciona una opción',
+                    'contact.opt1': 'IA y automatización',
+                    'contact.opt2': 'Desarrollo web o sistema',
+                    'contact.opt3': 'Marketing y adquisición',
+                    'contact.opt4': 'Otro',
+                    'contact.submit': 'Solicitar diagnóstico',
+                    'contact.alt': 'Hablar por WhatsApp',
+                    'contact.success': 'Mensaje enviado correctamente. Te responderé pronto.',
+                    'contact.error-msg': 'Hubo un error al enviar. Intenta nuevamente o contáctame directamente.',
+                    'footer.title': '¿Tienes un proceso que podríamos mejorar?',
+                    'footer.desc': 'Cuéntame qué quieres construir, automatizar o mejorar y revisamos juntos cuál puede ser la mejor solución.',
+                    'footer.services': 'Servicios',
+                    'footer.projects': 'Proyectos',
+                    'footer.contact': 'Contacto'
                 },
                 en: {
-                    'nav.about': 'About',
-                    'nav.experience': 'Experience',
-                    'nav.audio': 'Audio',
+                    'a11y.skip': 'Skip to content',
+                    'nav.services': 'Services',
                     'nav.projects': 'Projects',
+                    'nav.how': 'How I Work',
+                    'nav.about': 'About',
                     'nav.tech': 'Technologies',
-                    'nav.contact': 'Contact',
-                    'hero.eyebrow': 'Professional Portfolio',
-                    'hero.role1': 'Fullstack Developer',
-                    'hero.role2': 'Sound Engineer',
-                    'hero.role3': 'AI Specialist',
-                    'hero.desc': 'Fusing the art of sound with the precision of code and the power of Artificial Intelligence to create unique digital experiences.',
-                    'hero.projects': 'View Projects',
-                    'hero.contact': 'Contact',
+                    'nav.audio': 'Audio',
+                    'nav.cta': 'Request diagnosis',
+                    'hero.eyebrow': 'Technology Consulting',
+                    'hero.title': 'AI, Automation & Web Development',
+                    'hero.desc': 'I build digital solutions that help businesses acquire clients, automate processes, and improve operations through Artificial Intelligence, web development, and digital marketing.',
+                    'hero.role2': 'Automation',
+                    'hero.role3': 'Web Development',
+                    'hero.role4': 'Backend',
+                    'hero.role5': 'Digital Marketing',
+                    'hero.cta1': 'Request diagnosis',
+                    'hero.cta2': 'View projects',
                     'hero.alt': 'Professional portrait of Cristian Pedraza',
-                    'stats.dev.title': 'Development',
-                    'stats.dev.desc': 'Robust architectures, clean and scalable code. Specialist in Django, React, Node.js, PHP, TypeScript, HTML5, CSS3 and Cloud ecosystems.',
-                    'stats.audio.title': 'Audio',
-                    'stats.audio.desc': 'Sound design and signal processing, integrating acoustics principles and digital technologies to optimize sound quality.',
-                    'stats.ai.title': 'Artificial Intelligence',
-                    'stats.ai.desc': 'Integration of Machine Learning, Deep Learning and Reinforcement Learning models, including computer vision, predictive analysis and agents for Atari environments.',
-                    'about.eyebrow': '01 · About Me',
-                    'about.title': 'The intersection of disciplines.',
-                    'about.quote': '“My approach combines sound engineering with creativity and web development.”',
-                    'about.p1': 'As a Sound Engineer, I learned to be precise based on math and physics. As a Fullstack Developer, I learned to build tools that help people in their daily lives. Today, AI is the bridge to connect both worlds and create new applications.',
-                    'about.p2': 'I have led projects from technical conception to the implementation of complex algorithms, always prioritizing an impeccable user experience and a scalable, sustainable architecture.',
-                    'audio.eyebrow': '02 · Sound Engineering',
-                    'audio.title': 'Technical precision and sound art.',
-                    'audio.lead': 'Expert in optimizing acoustic environments and producing high-fidelity audio, applying physical and mathematical principles to achieve sonic excellence.',
+                    'services.eyebrow': 'Services',
+                    'services.title': 'What can I do for your business?',
+                    'services.lead': 'Technology solutions that connect marketing, sales, and operations to reduce manual work and improve client management.',
+                    'services.s1.title': 'AI & Automation',
+                    'services.s1.desc': 'I design and implement Artificial Intelligence and automation solutions to reduce repetitive tasks, process information, and improve business processes.',
+                    'services.s1.u1': 'AI agents',
+                    'services.s1.u2': 'Process automation',
+                    'services.s1.u3': 'Lead classification',
+                    'services.s1.u4': 'Document processing',
+                    'services.s1.u5': 'API integration',
+                    'services.s1.u6': 'Follow-up workflows',
+                    'services.s1.cta': 'I want to automate a process',
+                    'services.s2.title': 'Web Dev & Systems',
+                    'services.s2.desc': 'I develop web applications, dashboards, internal systems, APIs, and integrations tailored to each business need.',
+                    'services.s2.u2': 'Corporate websites',
+                    'services.s2.u3': 'Web applications',
+                    'services.s2.u5': 'Administrative systems',
+                    'services.s2.u8': 'Integrations',
+                    'services.s2.cta': 'I need a web solution',
+                    'services.s3.title': 'Marketing & Acquisition',
+                    'services.s3.desc': 'I create digital systems focused on capturing business opportunities and connecting marketing, sales, and follow-up.',
+                    'services.s3.u1': 'Conversion landing pages',
+                    'services.s3.u2': 'Lead generation',
+                    'services.s3.u3': 'Sales funnels',
+                    'services.s3.u4': 'Follow-up automation',
+                    'services.s3.u5': 'CRM integration',
+                    'services.s3.u6': 'Analytics',
+                    'services.s3.cta': 'I want to improve my acquisition',
+                    'auto.eyebrow': 'Automation',
+                    'auto.title': 'Turn manual processes into automated systems',
+                    'auto.lead': 'Examples of how AI and automation can transform your company\'s operations.',
+                    'auto.c1.title': 'Client acquisition',
+                    'auto.c1.s3': 'Classification',
+                    'auto.c1.s5': 'Notification',
+                    'auto.c1.s6': 'Follow-up',
+                    'auto.c2.title': 'Documents',
+                    'auto.c2.s2': 'Extraction',
+                    'auto.c2.s4': 'Structured info',
+                    'auto.c2.s5': 'Database',
+                    'auto.c3.title': 'Sales',
+                    'auto.c3.s2': 'Registration',
+                    'auto.c3.s3': 'Follow-up',
+                    'auto.c3.s4': 'Reminder',
+                    'auto.c3.s5': 'Report',
+                    'auto.c4.title': 'Operations',
+                    'auto.c4.s1': 'Form',
+                    'auto.c4.s2': 'Processing',
+                    'auto.c4.s3': 'Automation',
+                    'auto.c4.s4': 'Result',
+                    'auto.c5.title': 'Customer service',
+                    'auto.c5.s1': 'Client',
+                    'auto.c5.s2': 'AI Assistant',
+                    'auto.c5.s3': 'Information',
+                    'auto.c5.s4': 'Routing',
+                    'auto.c5.s5': 'Registration',
+                    'projects.eyebrow': 'Projects',
+                    'projects.title': 'Case Studies',
+                    'projects.lead': 'Real projects that demonstrate technical capability and business-oriented results.',
+                    'projects.tags.ai': 'AI & Automation',
+                    'projects.tags.backend': 'Backend & APIs',
+                    'projects.tags.arch': 'Backend Architecture',
+                    'projects.tags.fullstack': 'Fullstack & Cloud',
+                    'projects.meta.context': 'Context',
+                    'projects.meta.solution': 'Solution',
+                    'projects.meta.result': 'Result',
+                    'projects.p1.context': 'Need for a robust backend to support business operations with data management and optimized queries.',
+                    'projects.p1.solution': 'Backend development and maintenance implementing RESTful APIs with model management and query optimization.',
+                    'projects.p2.context': 'Need to automate client interaction through an intelligent chatbot capable of processing requests and providing dynamic responses.',
+                    'projects.p2.solution': 'Chatbot integration with external APIs, request processing, and dynamic response handling.',
+                    'projects.p2.result': 'Automated conversational interaction system that processes requests and generates responses in real time.',
+                    'projects.p3.context': 'System with coupled architecture that needed separation of responsibilities and modularity.',
+                    'projects.p3.solution': 'Modular architecture refactoring with separation of responsibilities and service implementation in TypeScript.',
+                    'projects.p4.context': 'Need for a complete web application with cloud deployment, security, and scalability.',
+                    'projects.p4.solution': 'Fullstack web app with React, backend, AWS deployment with Nginx, Gunicorn and JWT authentication.',
+                    'demos.eyebrow': 'Demo Lab',
+                    'demos.title': 'Live Prototypes',
+                    'demos.lead': 'Interactively try automation and AI solutions you can implement in your business.',
+                    'demos.d1.title': 'Smart Chatbot',
+                    'demos.d1.desc': 'Conversational assistant that classifies leads, answers FAQs, and schedules appointments automatically.',
+                    'demos.d2.title': 'Document Extractor',
+                    'demos.d2.desc': 'Upload a PDF and get structured data automatically: invoices, contracts, records.',
+                    'demos.d3.title': 'Sales Dashboard',
+                    'demos.d3.desc': 'Real-time panel with conversion metrics, pipeline, and commercial tracking.',
+                    'demos.soon': 'Coming soon',
+                    'how.eyebrow': 'How I Work',
+                    'how.title': 'From problem to solution',
+                    'how.lead': 'I don\'t just sell code. I build solutions that address real business problems.',
+                    'how.s1.title': 'Diagnosis',
+                    'how.s1.desc': 'I understand the current process and identify improvement opportunities.',
+                    'how.s2.title': 'Design',
+                    'how.s2.desc': 'I define the architecture and the most appropriate solution.',
+                    'how.s3.title': 'Implementation',
+                    'how.s3.desc': 'I develop and integrate the solution.',
+                    'how.s4.title': 'Launch',
+                    'how.s4.desc': 'I deploy the system and verify its behavior.',
+                    'how.s5.title': 'Optimization',
+                    'how.s5.desc': 'I adjust and improve the solution based on real usage.',
+                    'about.eyebrow': 'About',
+                    'about.title': 'Technology with an interdisciplinary vision.',
+                    'about.p1': 'I am a Sound Engineer and software developer with experience in web development, backend, automation, and digital solutions. I am currently pursuing a Master\'s degree in Artificial Intelligence, deepening my knowledge in models, algorithms, and AI applications.',
+                    'about.p2': 'My experience also includes digital marketing and client acquisition, which allows me to understand technological solutions from a broader perspective: not just how to build them, but also how they can contribute to a company\'s business processes.',
+                    'about.p3': 'My approach combines software development, Artificial Intelligence, and business vision to build practical, scalable, and results-oriented solutions.',
+                    'audio.eyebrow': 'Sound Engineering',
+                    'audio.title': 'A second dimension of my experience.',
+                    'audio.lead': 'My Sound Engineering background complements my technical profile with acoustics principles, signal processing, and sound design.',
                     'audio.f1.title': 'Acoustic Design',
-                    'audio.f1.desc': 'Creating comprehensive acoustic designs for studios and professional spaces, ensuring a balanced frequency response.',
+                    'audio.f1.desc': 'Creating comprehensive acoustic designs for studios and professional spaces.',
                     'audio.f2.title': 'Conditioning',
-                    'audio.f2.desc': 'Advanced acoustic conditioning and insulation to control reflections, reverberation times and noise transmission.',
+                    'audio.f2.desc': 'Advanced acoustic conditioning and insulation for reflection and reverberation control.',
                     'audio.f3.title': 'Sound Design',
-                    'audio.f3.desc': 'Creating unique sound textures and landscapes for digital media, video games and interactive applications.',
+                    'audio.f3.desc': 'Creating sound textures and landscapes for digital media and interactive applications.',
                     'audio.f4.title': 'Post-Production',
-                    'audio.f4.desc': 'Professional recording, editing, mixing and mastering (Stereo/Surround) with industry standards.',
+                    'audio.f4.desc': 'Professional recording, editing, mixing and mastering with industry standards.',
+                    'audio.visit': 'Visit website',
                     'audio.alt': 'Professional Acoustic Design',
-                    'audio.badge': 'Certified Quality',
-                    'projects.eyebrow': '03 · Projects',
-                    'projects.title': 'Developed Work',
-                    'projects.tags.backend': 'Backend Developer',
-                    'projects.tags.chatbot': 'Chatbot Developer',
-                    'projects.tags.fullstack': 'Fullstack Developer',
-                    'projects.p1.desc': 'Backend development and maintenance implementing RESTful APIs. Model management and query optimization in MySQL and PostgreSQL.',
-                    'projects.p2.desc': 'Integration of chatbots with external APIs using PHP and the CariAI platform. Request processing and dynamic response handling.',
-                    'projects.p3.desc': 'Modular architecture refactoring. Separation of responsibilities and implementation of services in TypeScript.',
-                    'projects.p4.desc': 'Fullstack web app with React and AWS. Nginx and Gunicorn configuration and JWT security for authentication.',
-                    'tech.eyebrow': '04 · Tech Stack',
+                    'tech.eyebrow': 'Tech Stack',
                     'tech.title': 'Technologies & Tools',
-                    'tech.lead': 'My technical stack and specialized development tools for creating scalable and efficient digital solutions.',
-                    'tech.languages': 'Languages',
+                    'tech.lead': 'Real tools and technologies used in my projects and solutions.',
+                    'tech.ai': 'AI & Automation',
                     'tech.backend': 'Backend',
                     'tech.frontend': 'Frontend',
                     'tech.databases': 'Databases',
                     'tech.devops': 'Cloud & DevOps',
                     'tech.tools': 'Tools',
-                    'footer.title': 'Let\'s build something exceptional.',
-                    'footer.desc': 'Available for strategic collaborations and high-impact technology projects.',
-                    'a11y.skip': 'Skip to content'
+                    'marketing.eyebrow': 'Digital Marketing',
+                    'marketing.title': 'Marketing focused on acquisition',
+                    'marketing.lead': 'I combine marketing, web development, and automation to build systems that convert traffic into business opportunities.',
+                    'marketing.m1': 'Lead generation',
+                    'marketing.m2': 'Conversion-oriented landing pages',
+                    'marketing.m3': 'Sales funnels',
+                    'marketing.m4': 'Follow-up automation',
+                    'marketing.m5': 'CRM integration',
+                    'marketing.m6': 'Analytics and conversion optimization',
+                    'contact.eyebrow': 'Contact',
+                    'contact.title': 'Do you have a process we could improve?',
+                    'contact.lead': 'Tell me what you want to build, automate, or improve, and we\'ll review together what the best solution might be.',
+                    'contact.f1': 'Name',
+                    'contact.f2': 'Company',
+                    'contact.f3': 'Email',
+                    'contact.f4': 'WhatsApp',
+                    'contact.f5': 'What do you need?',
+                    'contact.f6': 'Project description',
+                    'contact.opt0': 'Select an option',
+                    'contact.opt1': 'AI and automation',
+                    'contact.opt2': 'Web development or system',
+                    'contact.opt3': 'Marketing and acquisition',
+                    'contact.opt4': 'Other',
+                    'contact.submit': 'Request diagnosis',
+                    'contact.alt': 'Talk on WhatsApp',
+                    'contact.success': 'Message sent successfully. I\'ll respond soon.',
+                    'contact.error-msg': 'There was an error sending. Try again or contact me directly.',
+                    'footer.title': 'Do you have a process we could improve?',
+                    'footer.desc': 'Tell me what you want to build, automate, or improve, and we\'ll review together what the best solution might be.',
+                    'footer.services': 'Services',
+                    'footer.projects': 'Projects',
+                    'footer.contact': 'Contact'
                 }
             };
 
             var header = document.getElementById('header');
             var menuBtn = document.getElementById('menuBtn');
-            var slider = document.getElementById('slider');
-            var prevBtn = document.getElementById('prevBtn');
-            var nextBtn = document.getElementById('nextBtn');
-            var dotsWrap = document.getElementById('sliderDots');
+            var slider = null;
             var toTop = document.getElementById('toTop');
-            var slideCount = slider.querySelectorAll('.slide').length;
-
-            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
             var langBtn = document.getElementById('langBtn');
             var currentLang = 'es';
             try {
                 currentLang = localStorage.getItem('portfolio-lang') || 'es';
-            } catch (e) { /* sin almacenamiento */ }
+            } catch (e) { }
             if (currentLang !== 'es' && currentLang !== 'en') currentLang = 'es';
 
             var applyLang = function (lang) {
@@ -2046,7 +2727,7 @@
                 langBtn.setAttribute('aria-label', lang === 'es' ? 'Cambiar idioma a inglés' : 'Switch language to Spanish');
                 try {
                     localStorage.setItem('portfolio-lang', lang);
-                } catch (e) { /* sin almacenamiento */ }
+                } catch (e) { }
             };
 
             document.getElementById('year').textContent = new Date().getFullYear();
@@ -2077,79 +2758,8 @@
                 });
             });
 
-            for (var i = 0; i < slideCount; i++) {
-                var dot = document.createElement('button');
-                dot.className = 'dot';
-                dot.setAttribute('aria-label', 'Ir al proyecto ' + (i + 1));
-                dot.addEventListener('click', function (index) {
-                    return function () {
-                        slider.scrollTo({ left: slider.children[index].offsetLeft, behavior: 'smooth' });
-                    };
-                }(i));
-                dotsWrap.appendChild(dot);
-            }
-
-            var dots = dotsWrap.children;
-            var activeDot = 0;
-
-            var moveBy = function () {
-                return slider.children[0].getBoundingClientRect().width + 25.6;
-            };
-
-            var updateDots = function () {
-                var perView = Math.max(1, Math.round(slider.clientWidth / (slider.children[0].offsetWidth + 25.6)));
-                var maxIndex = Math.max(0, slideCount - perView);
-                var idx = Math.min(Math.round(slider.scrollLeft / moveBy()), maxIndex);
-                activeDot = Math.max(0, idx);
-                for (var i = 0; i < dots.length; i++) {
-                    dots[i].classList.toggle('active', i === activeDot);
-                }
-            };
-
-            var scrollToIndex = function (index) {
-                index = Math.max(0, Math.min(slideCount - 1, index));
-                slider.scrollTo({ left: slider.children[index].offsetLeft - 0, behavior: 'smooth' });
-            };
-
-            prevBtn.addEventListener('click', function () { scrollToIndex(activeDot - 1); });
-            nextBtn.addEventListener('click', function () { scrollToIndex(activeDot + 1); });
-
-            slider.addEventListener('scroll', updateDots, { passive: true });
-
-            var autoplay = null;
-            var startAutoplay = function () {
-                if (prefersReduced) return;
-                autoplay = setInterval(function () {
-                    var maxScroll = slider.scrollWidth - slider.clientWidth;
-                    if (slider.scrollLeft >= maxScroll - 1) {
-                        slider.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        slider.scrollBy({ left: moveBy(), behavior: 'smooth' });
-                    }
-                }, 3500);
-            };
-            var stopAutoplay = function () {
-                if (autoplay) { clearInterval(autoplay); autoplay = null; }
-            };
-
-            slider.addEventListener('mouseenter', stopAutoplay);
-            slider.addEventListener('mouseleave', startAutoplay);
-            slider.addEventListener('focusin', stopAutoplay);
-            slider.addEventListener('focusout', function () {
-                if (header.classList.contains('menu-open')) return;
-                if (!prefersReduced && document.activeElement && slider.contains(document.activeElement)) return;
-                startAutoplay();
-            });
-            slider.addEventListener('touchstart', stopAutoplay, { passive: true });
-            slider.addEventListener('touchend', startAutoplay);
-
-            window.addEventListener('resize', updateDots);
-
-            updateDots();
-
-            window.setTimeout(startAutoplay, 1200);
-
             toTop.addEventListener('click', function () {
+                var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
             });
 
@@ -2176,6 +2786,97 @@
                 });
             }, { rootMargin: '-40% 0px -55% 0px' });
             sections.forEach(function (section) { spy.observe(section); });
+
+            var contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    var nombre = document.getElementById('nombre').value.trim();
+                    var empresa = document.getElementById('empresa').value.trim();
+                    var email = document.getElementById('email').value.trim();
+                    var whatsapp = document.getElementById('whatsapp').value.trim();
+                    var necesidad = document.getElementById('necesidad').value;
+                    var descripcion = document.getElementById('descripcion').value.trim();
+
+                    var showError = function (id, msg) {
+                        var el = document.getElementById('error-' + id);
+                        if (el) {
+                            el.textContent = msg;
+                            el.classList.add('show');
+                        }
+                    };
+
+                    document.querySelectorAll('.form-error').forEach(function (el) {
+                        el.classList.remove('show');
+                        el.textContent = '';
+                    });
+
+                    var nameRegex = /^[A-Za-zÁ-ÿñÑ\s]+$/;
+                    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    var hasError = false;
+
+                    if (!nombre || !nameRegex.test(nombre)) {
+                        showError('nombre', currentLang === 'es' ? 'Ingresa un nombre válido (solo letras).' : 'Enter a valid name (letters only).');
+                        hasError = true;
+                    }
+
+                    if (!email || !emailRegex.test(email)) {
+                        showError('email', currentLang === 'es' ? 'Ingresa un correo electrónico válido.' : 'Enter a valid email address.');
+                        hasError = true;
+                    }
+
+                    if (!necesidad) {
+                        showError('necesidad', currentLang === 'es' ? 'Selecciona una opción.' : 'Select an option.');
+                        hasError = true;
+                    }
+
+                    if (!descripcion) {
+                        showError('descripcion', currentLang === 'es' ? 'Describe brevemente tu proyecto.' : 'Briefly describe your project.');
+                        hasError = true;
+                    }
+
+                    if (hasError) return;
+
+                    var submitBtn = document.getElementById('submitBtn');
+                    var successMsg = document.getElementById('form-success');
+                    var errorMsg = document.getElementById('form-error-msg');
+
+                    if (successMsg) successMsg.classList.remove('show');
+                    if (errorMsg) errorMsg.classList.remove('show');
+
+                    submitBtn.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...';
+                    submitBtn.disabled = true;
+
+                    var params = {
+                        nombre: nombre,
+                        empresa: empresa,
+                        email: email,
+                        whatsapp: whatsapp,
+                        necesidad: necesidad,
+                        descripcion: descripcion
+                    };
+
+                    emailjs.send(window.__CONFIG.emailJSService, window.__CONFIG.emailJSTemplate, params)
+                        .then(function () {
+                            if (errorMsg) errorMsg.classList.remove('show');
+                            if (successMsg) {
+                                successMsg.classList.add('show');
+                                setTimeout(function () { successMsg.classList.remove('show'); }, 5000);
+                            }
+                            contactForm.reset();
+                        })
+                        .catch(function (error) {
+                            console.error('Error al enviar:', error);
+                            if (errorMsg) errorMsg.classList.add('show');
+                            if (successMsg) successMsg.classList.remove('show');
+                        })
+                        .finally(function () {
+                            submitBtn.textContent = currentLang === 'es' ? 'Solicitar diagnóstico' : 'Request diagnosis';
+                            submitBtn.disabled = false;
+                        });
+                });
+            }
         })();
     </script>
 </body>
